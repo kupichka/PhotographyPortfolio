@@ -9,6 +9,7 @@
   <meta property="og:image:alt" content="Харизматична снимка на синеоко момче в студени цветове">
   <meta property="og:url" content="https://photos.kupichka.org/">
   <meta property="og:type" content="website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet">
 </head>
@@ -211,11 +212,14 @@ jQuery("#gallery").nanogallery2({
   galleryMosaicXS : [
     { w: 2, h: 2, c: 1, r: 1 },
     { w: 1, h: 1, c: 1, r: 3 },
-    { w: 1, h: 1, c: 2, r: 3 }
+    { w: 1, h: 1, c: 2, r: 3 },
+    { w: 1, h: 1, c: 1, r: 4 },
+    { w: 1, h: 1, c: 2, r: 4 }
   ],
 
   galleryMaxRows: 1,
   galleryDisplayMode: 'rows',
+
   gallerySorting: 'random',
   thumbnailDisplayOrder: 'random',
 
@@ -226,7 +230,7 @@ jQuery("#gallery").nanogallery2({
   thumbnailGutterHeight: 0,
   thumbnailBorderHorizontal: 0, 
   thumbnailBorderVertical: 0,
-  thumbnailLabel: { display: true },
+  thumbnailLabel: { display: false },
 
   // DISPLAY ANIMATION
   galleryDisplayTransitionDuration: 1500,
@@ -245,7 +249,7 @@ jQuery("#gallery").nanogallery2({
   viewerToolbar: { display: false },
   viewerTools: {
     topLeft: 'label',
-    topRight: 'shareButton, rotateLeft, rotateRight, intoButton, fullscreenButton, closeButton'
+    topRight: 'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
   },
 
   // GALLERY THEME
