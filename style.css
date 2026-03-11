@@ -101,6 +101,36 @@ hr {
   height: 14px;
 }
 
+.label-before, 
+.label-after {
+  position: absolute;
+  top: 15px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background */
+  color: white;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  
+  /* CRITICAL: This prevents the labels from blocking the invisible slider input */
+  pointer-events: none; 
+  
+  /* Puts them above the images but below the slider input */
+  z-index: 4; 
+}
+
+/* Pin them to their respective corners */
+.label-before {
+  right: 15px;
+}
+
+.label-after {
+  left: 15px;
+}
+
 .image-slider {
     width: 50vw;
 }
