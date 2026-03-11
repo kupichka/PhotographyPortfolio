@@ -3,12 +3,13 @@
 <head>
   <meta property="og:title" content="Галерия Борислав">
   <meta property="og:description" content="Колекция от най-добрата ми работа досега">
-  <meta property="og:image" content="https://photos.kupichka.org/images/full/101_4477.webp">
-  <meta property="og:image:width" content="2000">
-  <meta property="og:image:height" content="1500">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/101_4477.webp">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="300">
   <meta property="og:image:alt" content="Харизматична снимка на синеоко момче в студени цветове">
   <meta property="og:url" content="https://photos.kupichka.org/">
   <meta property="og:type" content="website">
+  <link href="./style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet">
 </head>
 <body>
@@ -19,14 +20,249 @@
 <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
 
 <script>
-$("#gallery").nanogallery2({
-  itemsBaseURL: "images/",
+// $("#gallery").nanogallery2({
+//   itemsBaseURL: "",
+//   items: [
+//   {
+//     "src": "images/full/101_4477.webp",
+//     "srct": "images/thumb/101_4477.webp",
+//     "title": "101_4477"
+//   },
+//   {
+//     "src": "images/full/101_4519.webp",
+//     "srct": "images/thumb/101_4519.webp",
+//     "title": "101_4519"
+//   },
+//   {
+//     "src": "images/full/IMG_1828.webp",
+//     "srct": "images/thumb/IMG_1828.webp",
+//     "title": "IMG_1828"
+//   },
+//   {
+//     "src": "images/full/IMG_1831.webp",
+//     "srct": "images/thumb/IMG_1831.webp",
+//     "title": "IMG_1831"
+//   },
+//   {
+//     "src": "images/full/IMG_1864.webp",
+//     "srct": "images/thumb/IMG_1864.webp",
+//     "title": "IMG_1864"
+//   },
+//   {
+//     "src": "images/full/IMG_2181.webp",
+//     "srct": "images/thumb/IMG_2181.webp",
+//     "title": "IMG_2181"
+//   },
+//   {
+//     "src": "images/full/IMG_2648.webp",
+//     "srct": "images/thumb/IMG_2648.webp",
+//     "title": "IMG_2648"
+//   },
+//   {
+//     "src": "images/full/IMG_7625.webp",
+//     "srct": "images/thumb/IMG_7625.webp",
+//     "title": "IMG_7625"
+//   },
+//   {
+//     "src": "images/full/IMG_8326.webp",
+//     "srct": "images/thumb/IMG_8326.webp",
+//     "title": "IMG_8326"
+//   },
+//   {
+//     "src": "images/full/IMG_9284.webp",
+//     "srct": "images/thumb/IMG_9284.webp",
+//     "title": "IMG_9284"
+//   },
+//   {
+//     "src": "images/full/IMG_9311.webp",
+//     "srct": "images/thumb/IMG_9311.webp",
+//     "title": "IMG_9311"
+//   },
+//   {
+//     "src": "images/full/P1000648.webp",
+//     "srct": "images/thumb/P1000648.webp",
+//     "title": "P1000648"
+//   },
+//   {
+//     "src": "images/full/P1001144.webp",
+//     "srct": "images/thumb/P1001144.webp",
+//     "title": "P1001144"
+//   },
+//   {
+//     "src": "images/full/P1001339.webp",
+//     "srct": "images/thumb/P1001339.webp",
+//     "title": "P1001339"
+//   },
+//   {
+//     "src": "images/full/P1024791.webp",
+//     "srct": "images/thumb/P1024791.webp",
+//     "title": "P1024791"
+//   }
+// ]
+// });
+
+jQuery("#gallery").nanogallery2({
+
+  // CONTENT SOURCE
+  itemsBaseURL: "",
   items: [
-    { src: "full/101_4477.webp", srct: "thumb/101_4477.webp", title: "Photo 1" },
-    { src: "photo2.jpg", srct: "photo2.jpg", title: "Photo 2" }
-  ]
+    {
+      "src": "images/full/101_4477.webp",
+      "srct": "images/thumb/101_4477.webp",
+      "title": "101_4477"
+    },
+    {
+      "src": "images/full/101_4519.webp",
+      "srct": "images/thumb/101_4519.webp",
+      "title": "101_4519"
+    },
+    {
+      "src": "images/full/IMG_1828.webp",
+      "srct": "images/thumb/IMG_1828.webp",
+      "title": "IMG_1828"
+    },
+    {
+      "src": "images/full/IMG_1831.webp",
+      "srct": "images/thumb/IMG_1831.webp",
+      "title": "IMG_1831"
+    },
+    {
+      "src": "images/full/IMG_1864.webp",
+      "srct": "images/thumb/IMG_1864.webp",
+      "title": "IMG_1864"
+    },
+    {
+      "src": "images/full/IMG_2181.webp",
+      "srct": "images/thumb/IMG_2181.webp",
+      "title": "IMG_2181"
+    },
+    {
+      "src": "images/full/IMG_2648.webp",
+      "srct": "images/thumb/IMG_2648.webp",
+      "title": "IMG_2648"
+    },
+    {
+      "src": "images/full/IMG_7625.webp",
+      "srct": "images/thumb/IMG_7625.webp",
+      "title": "IMG_7625"
+    },
+    {
+      "src": "images/full/IMG_8326.webp",
+      "srct": "images/thumb/IMG_8326.webp",
+      "title": "IMG_8326"
+    },
+    {
+      "src": "images/full/IMG_9284.webp",
+      "srct": "images/thumb/IMG_9284.webp",
+      "title": "IMG_9284"
+    },
+    {
+      "src": "images/full/IMG_9311.webp",
+      "srct": "images/thumb/IMG_9311.webp",
+      "title": "IMG_9311"
+    },
+    {
+      "src": "images/full/P1000648.webp",
+      "srct": "images/thumb/P1000648.webp",
+      "title": "P1000648"
+    },
+    {
+      "src": "images/full/P1001144.webp",
+      "srct": "images/thumb/P1001144.webp",
+      "title": "P1001144"
+    },
+    {
+      "src": "images/full/P1001339.webp",
+      "srct": "images/thumb/P1001339.webp",
+      "title": "P1001339"
+    },
+    {
+      "src": "images/full/P1024791.webp",
+      "srct": "images/thumb/P1024791.webp",
+      "title": "P1024791"
+    }
+  ],
+
+  // GALLERY LAYOUT
+  galleryMosaic : [                       // default layout
+    { w: 2, h: 2, c: 1, r: 1 },
+    { w: 1, h: 1, c: 3, r: 1 },
+    { w: 1, h: 1, c: 3, r: 2 },
+    { w: 1, h: 2, c: 4, r: 1 },
+    { w: 2, h: 1, c: 5, r: 1 },
+    { w: 2, h: 2, c: 5, r: 2 },
+    { w: 1, h: 1, c: 4, r: 3 },
+    { w: 2, h: 1, c: 2, r: 3 },
+    { w: 1, h: 2, c: 1, r: 3 },
+    { w: 1, h: 1, c: 2, r: 4 },
+    { w: 2, h: 1, c: 3, r: 4 },
+    { w: 1, h: 1, c: 5, r: 4 },
+    { w: 1, h: 1, c: 6, r: 4 }
+  ],
+  galleryMosaicXS : [                     // layout for XS width
+    { w: 2, h: 2, c: 1, r: 1 },
+    { w: 1, h: 1, c: 3, r: 1 },
+    { w: 1, h: 1, c: 3, r: 2 },
+    { w: 1, h: 2, c: 1, r: 3 },
+    { w: 2, h: 1, c: 2, r: 3 },
+    { w: 1, h: 1, c: 2, r: 4 },
+    { w: 1, h: 1, c: 3, r: 4 }
+  ],
+  galleryMosaicSM : [                     // layout for SM width
+    { w: 2, h: 2, c: 1, r: 1 },
+    { w: 1, h: 1, c: 3, r: 1 },
+    { w: 1, h: 1, c: 3, r: 2 },
+    { w: 1, h: 2, c: 1, r: 3 },
+    { w: 2, h: 1, c: 2, r: 3 },
+    { w: 1, h: 1, c: 2, r: 4 },
+    { w: 1, h: 1, c: 3, r: 4 }
+  ],
+
+  galleryMaxRows: 1,
+  galleryDisplayMode: 'rows',
+  gallerySorting: 'random',
+  thumbnailDisplayOrder: 'random',
+
+  thumbnailHeight: '180', 
+  thumbnailWidth: '220',
+  thumbnailAlignment: 'scaled',
+  thumbnailGutterWidth: 0, 
+  thumbnailGutterHeight: 0,
+  thumbnailBorderHorizontal: 0, 
+  thumbnailBorderVertical: 0,
+  thumbnailLabel: { display: false },
+
+  // DISPLAY ANIMATION
+  galleryDisplayTransitionDuration: 1500,
+  thumbnailDisplayTransition: 'imageSlideUp',
+  thumbnailDisplayTransitionDuration: 1200,
+  thumbnailDisplayTransitionEasing: 'easeInOutQuint',
+  thumbnailDisplayInterval: 60,
+
+  // THUMBNAIL HOVER ANIMATION
+  thumbnailBuildInit2: 'image_scale_1.15',
+  thumbnailHoverEffect2: 'thumbnail_scale_1.00_1.05_300|image_scale_1.15_1.00',
+  touchAnimation: true,
+  touchAutoOpenDelay: 500,
+
+  // LIGHTBOX
+  viewerToolbar: { display: false },
+  viewerTools: {
+    topLeft: 'label',
+    topRight: 'shareButton, rotateLeft, rotateRight, intoButton, fullscreenButton, closeButton'
+  },
+
+  // GALLERY THEME
+  galleryTheme : { 
+    thumbnail: { background: '#111' },
+  },
+
+  // DEEP LINKING
+  locationHash: true
 });
 </script>
 
+
 </body>
 </html>
+
