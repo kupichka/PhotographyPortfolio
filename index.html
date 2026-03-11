@@ -199,15 +199,6 @@ jQuery("#gallery").nanogallery2({
     { w: 1, h: 1, c: 5, r: 4 },
     { w: 1, h: 1, c: 6, r: 4 }
   ],
-  galleryMosaicXS : [                     // layout for XS width
-    { w: 2, h: 2, c: 1, r: 1 },
-    { w: 1, h: 1, c: 3, r: 1 },
-    { w: 1, h: 1, c: 3, r: 2 },
-    { w: 1, h: 2, c: 1, r: 3 },
-    { w: 2, h: 1, c: 2, r: 3 },
-    { w: 1, h: 1, c: 2, r: 4 },
-    { w: 1, h: 1, c: 3, r: 4 }
-  ],
   galleryMosaicSM : [                     // layout for SM width
     { w: 2, h: 2, c: 1, r: 1 },
     { w: 1, h: 1, c: 3, r: 1 },
@@ -217,6 +208,11 @@ jQuery("#gallery").nanogallery2({
     { w: 1, h: 1, c: 2, r: 4 },
     { w: 1, h: 1, c: 3, r: 4 }
   ],
+  galleryMosaicXS : [
+    { w: 2, h: 2, c: 1, r: 1 },
+    { w: 1, h: 1, c: 1, r: 3 },
+    { w: 1, h: 1, c: 2, r: 3 }
+  ],
 
   galleryMaxRows: 1,
   galleryDisplayMode: 'rows',
@@ -225,12 +221,12 @@ jQuery("#gallery").nanogallery2({
 
   thumbnailHeight: '180', 
   thumbnailWidth: '220',
-  thumbnailAlignment: 'scaled',
+  thumbnailAlignment: 'fitWidth',
   thumbnailGutterWidth: 0, 
   thumbnailGutterHeight: 0,
   thumbnailBorderHorizontal: 0, 
   thumbnailBorderVertical: 0,
-  thumbnailLabel: { display: false },
+  thumbnailLabel: { display: true },
 
   // DISPLAY ANIMATION
   galleryDisplayTransitionDuration: 1500,
