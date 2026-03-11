@@ -12,256 +12,292 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- <div class="heading">Галерия</div>
+  <hr> -->
+  <div id="gallery"></div>
 
-<div id="gallery"></div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  <script>
+  // $("#gallery").nanogallery2({
+  //   itemsBaseURL: "",
+  //   items: [
+  //   {
+  //     "src": "images/full/101_4477.webp",
+  //     "srct": "images/thumb/101_4477.webp",
+  //     "title": "101_4477"
+  //   },
+  //   {
+  //     "src": "images/full/101_4519.webp",
+  //     "srct": "images/thumb/101_4519.webp",
+  //     "title": "101_4519"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_1828.webp",
+  //     "srct": "images/thumb/IMG_1828.webp",
+  //     "title": "IMG_1828"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_1831.webp",
+  //     "srct": "images/thumb/IMG_1831.webp",
+  //     "title": "IMG_1831"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_1864.webp",
+  //     "srct": "images/thumb/IMG_1864.webp",
+  //     "title": "IMG_1864"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_2181.webp",
+  //     "srct": "images/thumb/IMG_2181.webp",
+  //     "title": "IMG_2181"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_2648.webp",
+  //     "srct": "images/thumb/IMG_2648.webp",
+  //     "title": "IMG_2648"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_7625.webp",
+  //     "srct": "images/thumb/IMG_7625.webp",
+  //     "title": "IMG_7625"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_8326.webp",
+  //     "srct": "images/thumb/IMG_8326.webp",
+  //     "title": "IMG_8326"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_9284.webp",
+  //     "srct": "images/thumb/IMG_9284.webp",
+  //     "title": "IMG_9284"
+  //   },
+  //   {
+  //     "src": "images/full/IMG_9311.webp",
+  //     "srct": "images/thumb/IMG_9311.webp",
+  //     "title": "IMG_9311"
+  //   },
+  //   {
+  //     "src": "images/full/P1000648.webp",
+  //     "srct": "images/thumb/P1000648.webp",
+  //     "title": "P1000648"
+  //   },
+  //   {
+  //     "src": "images/full/P1001144.webp",
+  //     "srct": "images/thumb/P1001144.webp",
+  //     "title": "P1001144"
+  //   },
+  //   {
+  //     "src": "images/full/P1001339.webp",
+  //     "srct": "images/thumb/P1001339.webp",
+  //     "title": "P1001339"
+  //   },
+  //   {
+  //     "src": "images/full/P1024791.webp",
+  //     "srct": "images/thumb/P1024791.webp",
+  //     "title": "P1024791"
+  //   }
+  // ]
+  // });
 
-<script>
-// $("#gallery").nanogallery2({
-//   itemsBaseURL: "",
-//   items: [
-//   {
-//     "src": "images/full/101_4477.webp",
-//     "srct": "images/thumb/101_4477.webp",
-//     "title": "101_4477"
-//   },
-//   {
-//     "src": "images/full/101_4519.webp",
-//     "srct": "images/thumb/101_4519.webp",
-//     "title": "101_4519"
-//   },
-//   {
-//     "src": "images/full/IMG_1828.webp",
-//     "srct": "images/thumb/IMG_1828.webp",
-//     "title": "IMG_1828"
-//   },
-//   {
-//     "src": "images/full/IMG_1831.webp",
-//     "srct": "images/thumb/IMG_1831.webp",
-//     "title": "IMG_1831"
-//   },
-//   {
-//     "src": "images/full/IMG_1864.webp",
-//     "srct": "images/thumb/IMG_1864.webp",
-//     "title": "IMG_1864"
-//   },
-//   {
-//     "src": "images/full/IMG_2181.webp",
-//     "srct": "images/thumb/IMG_2181.webp",
-//     "title": "IMG_2181"
-//   },
-//   {
-//     "src": "images/full/IMG_2648.webp",
-//     "srct": "images/thumb/IMG_2648.webp",
-//     "title": "IMG_2648"
-//   },
-//   {
-//     "src": "images/full/IMG_7625.webp",
-//     "srct": "images/thumb/IMG_7625.webp",
-//     "title": "IMG_7625"
-//   },
-//   {
-//     "src": "images/full/IMG_8326.webp",
-//     "srct": "images/thumb/IMG_8326.webp",
-//     "title": "IMG_8326"
-//   },
-//   {
-//     "src": "images/full/IMG_9284.webp",
-//     "srct": "images/thumb/IMG_9284.webp",
-//     "title": "IMG_9284"
-//   },
-//   {
-//     "src": "images/full/IMG_9311.webp",
-//     "srct": "images/thumb/IMG_9311.webp",
-//     "title": "IMG_9311"
-//   },
-//   {
-//     "src": "images/full/P1000648.webp",
-//     "srct": "images/thumb/P1000648.webp",
-//     "title": "P1000648"
-//   },
-//   {
-//     "src": "images/full/P1001144.webp",
-//     "srct": "images/thumb/P1001144.webp",
-//     "title": "P1001144"
-//   },
-//   {
-//     "src": "images/full/P1001339.webp",
-//     "srct": "images/thumb/P1001339.webp",
-//     "title": "P1001339"
-//   },
-//   {
-//     "src": "images/full/P1024791.webp",
-//     "srct": "images/thumb/P1024791.webp",
-//     "title": "P1024791"
-//   }
-// ]
-// });
+  jQuery("#gallery").nanogallery2({
 
-jQuery("#gallery").nanogallery2({
+    // CONTENT SOURCE
+    itemsBaseURL: "",
+    items: [
+      {
+        "src": "images/full/101_4477.webp",
+        "srct": "images/thumb/101_4477.webp",
+        "title": "101_4477"
+      },
+      {
+        "src": "images/full/101_4519.webp",
+        "srct": "images/thumb/101_4519.webp",
+        "title": "101_4519"
+      },
+      {
+        "src": "images/full/IMG_1828.webp",
+        "srct": "images/thumb/IMG_1828.webp",
+        "title": "IMG_1828"
+      },
+      {
+        "src": "images/full/IMG_1831.webp",
+        "srct": "images/thumb/IMG_1831.webp",
+        "title": "IMG_1831"
+      },
+      {
+        "src": "images/full/IMG_1864.webp",
+        "srct": "images/thumb/IMG_1864.webp",
+        "title": "IMG_1864"
+      },
+      {
+        "src": "images/full/IMG_2181.webp",
+        "srct": "images/thumb/IMG_2181.webp",
+        "title": "IMG_2181"
+      },
+      {
+        "src": "images/full/IMG_2648.webp",
+        "srct": "images/thumb/IMG_2648.webp",
+        "title": "IMG_2648"
+      },
+      {
+        "src": "images/full/IMG_7625.webp",
+        "srct": "images/thumb/IMG_7625.webp",
+        "title": "IMG_7625"
+      },
+      {
+        "src": "images/full/IMG_8326.webp",
+        "srct": "images/thumb/IMG_8326.webp",
+        "title": "IMG_8326"
+      },
+      {
+        "src": "images/full/IMG_9284.webp",
+        "srct": "images/thumb/IMG_9284.webp",
+        "title": "IMG_9284"
+      },
+      {
+        "src": "images/full/IMG_9311.webp",
+        "srct": "images/thumb/IMG_9311.webp",
+        "title": "IMG_9311"
+      },
+      {
+        "src": "images/full/P1000648.webp",
+        "srct": "images/thumb/P1000648.webp",
+        "title": "P1000648"
+      },
+      {
+        "src": "images/full/P1001144.webp",
+        "srct": "images/thumb/P1001144.webp",
+        "title": "P1001144"
+      },
+      {
+        "src": "images/full/P1001339.webp",
+        "srct": "images/thumb/P1001339.webp",
+        "title": "P1001339"
+      },
+      {
+        "src": "images/full/P1024791.webp",
+        "srct": "images/thumb/P1024791.webp",
+        "title": "P1024791"
+      }
+    ],
 
-  // CONTENT SOURCE
-  itemsBaseURL: "",
-  items: [
-    {
-      "src": "images/full/101_4477.webp",
-      "srct": "images/thumb/101_4477.webp",
-      "title": "101_4477"
+    // GALLERY LAYOUT
+    galleryMosaic : [                       // default layout
+      { w: 2, h: 2, c: 1, r: 1 },
+      { w: 1, h: 1, c: 3, r: 1 },
+      { w: 1, h: 1, c: 3, r: 2 },
+      { w: 1, h: 2, c: 4, r: 1 },
+      { w: 2, h: 1, c: 5, r: 1 },
+      { w: 2, h: 2, c: 5, r: 2 },
+      { w: 1, h: 1, c: 4, r: 3 },
+      { w: 2, h: 1, c: 2, r: 3 },
+      { w: 1, h: 2, c: 1, r: 3 },
+      { w: 1, h: 1, c: 2, r: 4 },
+      { w: 2, h: 1, c: 3, r: 4 },
+      { w: 1, h: 1, c: 5, r: 4 },
+      { w: 1, h: 1, c: 6, r: 4 }
+    ],
+    galleryMosaicSM : [                     // layout for SM width
+      { w: 2, h: 2, c: 1, r: 1 },
+      { w: 1, h: 1, c: 3, r: 1 },
+      { w: 1, h: 1, c: 3, r: 2 },
+      { w: 1, h: 2, c: 1, r: 3 },
+      { w: 2, h: 1, c: 2, r: 3 },
+      { w: 1, h: 1, c: 2, r: 4 },
+      { w: 1, h: 1, c: 3, r: 4 }
+    ],
+    galleryMosaicXS : [
+      { w: 2, h: 2, c: 1, r: 1 },
+      { w: 1, h: 1, c: 1, r: 3 },
+      { w: 1, h: 1, c: 2, r: 3 },
+      { w: 2, h: 2, c: 1, r: 4 },
+      { w: 1, h: 1, c: 1, r: 6 },
+      { w: 1, h: 1, c: 2, r: 6 },
+    ],
+
+    galleryMaxRows: 1,
+    galleryDisplayMode: 'rows',
+
+    gallerySorting: 'random',
+    thumbnailDisplayOrder: 'random',
+
+    thumbnailHeight: '180', 
+    thumbnailWidth: '220',
+    thumbnailAlignment: 'fitWidth',
+    thumbnailGutterWidth: 0, 
+    thumbnailGutterHeight: 0,
+    thumbnailBorderHorizontal: 0, 
+    thumbnailBorderVertical: 0,
+    thumbnailLabel: { display: false },
+
+    // DISPLAY ANIMATION
+    galleryDisplayTransitionDuration: 1500,
+    thumbnailDisplayTransition: 'imageSlideUp',
+    thumbnailDisplayTransitionDuration: 1200,
+    thumbnailDisplayTransitionEasing: 'easeInOutQuint',
+    thumbnailDisplayInterval: 60,
+
+    // THUMBNAIL HOVER ANIMATION
+    thumbnailBuildInit2: 'image_scale_1.15',
+    thumbnailHoverEffect2: 'thumbnail_scale_1.00_1.05_300|image_scale_1.15_1.00',
+    touchAnimation: true,
+    touchAutoOpenDelay: 500,
+
+    // LIGHTBOX
+    viewerToolbar: { display: false },
+    viewerTools: {
+      topLeft: 'label',
+      topRight: 'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
     },
-    {
-      "src": "images/full/101_4519.webp",
-      "srct": "images/thumb/101_4519.webp",
-      "title": "101_4519"
-    },
-    {
-      "src": "images/full/IMG_1828.webp",
-      "srct": "images/thumb/IMG_1828.webp",
-      "title": "IMG_1828"
-    },
-    {
-      "src": "images/full/IMG_1831.webp",
-      "srct": "images/thumb/IMG_1831.webp",
-      "title": "IMG_1831"
-    },
-    {
-      "src": "images/full/IMG_1864.webp",
-      "srct": "images/thumb/IMG_1864.webp",
-      "title": "IMG_1864"
-    },
-    {
-      "src": "images/full/IMG_2181.webp",
-      "srct": "images/thumb/IMG_2181.webp",
-      "title": "IMG_2181"
-    },
-    {
-      "src": "images/full/IMG_2648.webp",
-      "srct": "images/thumb/IMG_2648.webp",
-      "title": "IMG_2648"
-    },
-    {
-      "src": "images/full/IMG_7625.webp",
-      "srct": "images/thumb/IMG_7625.webp",
-      "title": "IMG_7625"
-    },
-    {
-      "src": "images/full/IMG_8326.webp",
-      "srct": "images/thumb/IMG_8326.webp",
-      "title": "IMG_8326"
-    },
-    {
-      "src": "images/full/IMG_9284.webp",
-      "srct": "images/thumb/IMG_9284.webp",
-      "title": "IMG_9284"
-    },
-    {
-      "src": "images/full/IMG_9311.webp",
-      "srct": "images/thumb/IMG_9311.webp",
-      "title": "IMG_9311"
-    },
-    {
-      "src": "images/full/P1000648.webp",
-      "srct": "images/thumb/P1000648.webp",
-      "title": "P1000648"
-    },
-    {
-      "src": "images/full/P1001144.webp",
-      "srct": "images/thumb/P1001144.webp",
-      "title": "P1001144"
-    },
-    {
-      "src": "images/full/P1001339.webp",
-      "srct": "images/thumb/P1001339.webp",
-      "title": "P1001339"
-    },
-    {
-      "src": "images/full/P1024791.webp",
-      "srct": "images/thumb/P1024791.webp",
-      "title": "P1024791"
-    }
-  ],
 
-  // GALLERY LAYOUT
-  galleryMosaic : [                       // default layout
-    { w: 2, h: 2, c: 1, r: 1 },
-    { w: 1, h: 1, c: 3, r: 1 },
-    { w: 1, h: 1, c: 3, r: 2 },
-    { w: 1, h: 2, c: 4, r: 1 },
-    { w: 2, h: 1, c: 5, r: 1 },
-    { w: 2, h: 2, c: 5, r: 2 },
-    { w: 1, h: 1, c: 4, r: 3 },
-    { w: 2, h: 1, c: 2, r: 3 },
-    { w: 1, h: 2, c: 1, r: 3 },
-    { w: 1, h: 1, c: 2, r: 4 },
-    { w: 2, h: 1, c: 3, r: 4 },
-    { w: 1, h: 1, c: 5, r: 4 },
-    { w: 1, h: 1, c: 6, r: 4 }
-  ],
-  galleryMosaicSM : [                     // layout for SM width
-    { w: 2, h: 2, c: 1, r: 1 },
-    { w: 1, h: 1, c: 3, r: 1 },
-    { w: 1, h: 1, c: 3, r: 2 },
-    { w: 1, h: 2, c: 1, r: 3 },
-    { w: 2, h: 1, c: 2, r: 3 },
-    { w: 1, h: 1, c: 2, r: 4 },
-    { w: 1, h: 1, c: 3, r: 4 }
-  ],
-  galleryMosaicXS : [
-    { w: 2, h: 2, c: 1, r: 1 },
-    { w: 1, h: 1, c: 1, r: 3 },
-    { w: 1, h: 1, c: 2, r: 3 },
-    { w: 1, h: 1, c: 1, r: 4 },
-    { w: 1, h: 1, c: 2, r: 4 }
-  ],
+    // GALLERY THEME
+    galleryTheme : { 
+      thumbnail: { background: '#111' },
+    },
 
-  galleryMaxRows: 1,
-  galleryDisplayMode: 'rows',
+    // DEEP LINKING
+    locationHash: true
+  });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Find all sliders on the page
+      const sliders = document.querySelectorAll('.image-slider');
 
-  gallerySorting: 'random',
-  thumbnailDisplayOrder: 'random',
+      sliders.forEach(slider => {
+        // Find the input within this specific slider
+        const input = slider.querySelector('.slider-input');
 
-  thumbnailHeight: '180', 
-  thumbnailWidth: '220',
-  thumbnailAlignment: 'fitWidth',
-  thumbnailGutterWidth: 0, 
-  thumbnailGutterHeight: 0,
-  thumbnailBorderHorizontal: 0, 
-  thumbnailBorderVertical: 0,
-  thumbnailLabel: { display: false },
+        // Update the CSS variable when the input changes
+        input.addEventListener('input', (e) => {
+          slider.style.setProperty('--position', `${e.target.value}%`);
+        });
+      });
+    });
+  </script>
+  <hr style="margin-top: 3.4rem; margin-bottom: 3rem;">
+  <div class = "heading" style="margin-bottom: 2rem; text-align: center">Технически поправки</div>
 
-  // DISPLAY ANIMATION
-  galleryDisplayTransitionDuration: 1500,
-  thumbnailDisplayTransition: 'imageSlideUp',
-  thumbnailDisplayTransitionDuration: 1200,
-  thumbnailDisplayTransitionEasing: 'easeInOutQuint',
-  thumbnailDisplayInterval: 60,
-
-  // THUMBNAIL HOVER ANIMATION
-  thumbnailBuildInit2: 'image_scale_1.15',
-  thumbnailHoverEffect2: 'thumbnail_scale_1.00_1.05_300|image_scale_1.15_1.00',
-  touchAnimation: true,
-  touchAutoOpenDelay: 500,
-
-  // LIGHTBOX
-  viewerToolbar: { display: false },
-  viewerTools: {
-    topLeft: 'label',
-    topRight: 'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
-  },
-
-  // GALLERY THEME
-  galleryTheme : { 
-    thumbnail: { background: '#111' },
-  },
-
-  // DEEP LINKING
-  locationHash: true
-});
-</script>
-
+  <div class="image-slider">
+    <img src="./images/comparisons/upside down certificate fixed.jpg" alt="Fixed Certificate" class="image-after">
+    
+    <img src="./images/comparisons/upside down certificate.jpg" alt="Upside Down Certificate" class="image-before">
+    
+    <input type="range" min="0" max="100" step="0.1" value="50" class="slider-input">
+    
+    <div class="slider-line"></div>
+    <div class="slider-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </div>
+  </div>
 
 </body>
 </html>

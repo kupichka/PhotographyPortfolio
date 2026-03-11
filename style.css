@@ -1,8 +1,125 @@
 body {
-    background-color: #090812;
+    background-color: #12121a;
+    color: #ffecd6;
+    font-family: 'Kollektif';
 }
-/* 
-#gallery {
-    width: 100%;
-    max-width: 100%;
-} */
+
+hr {
+    color: #4e204c;
+}
+
+.heading {
+  font-family:"Forum", serif;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+
+/* Container setup */
+.image-slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Adjust to your preference */
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  border-radius: 8px; /* Optional: gives it nice rounded corners */
+  --position: 50%; /* Default starting position */
+}
+
+/* Make both images fill the container perfectly */
+.image-slider img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Position the "Before" image directly over the "After" image */
+.image-before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  /* This crops the image based on the --position variable */
+  clip-path: polygon(0 0, var(--position) 0, var(--position) 100%, 0 100%);
+}
+
+/* The invisible native range input that handles dragging/touch automatically */
+.slider-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Make it invisible */
+  cursor: ew-resize; /* Show drag cursor */
+  z-index: 10;
+  margin: 0;
+}
+
+/* Update these specific sections in your CSS */
+
+.slider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--position);
+  width: 2px; /* Thinner line */
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent */
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  left: var(--position);
+  transform: translate(-50%, -50%);
+  
+  /* Sizing it down */
+  width: 32px; 
+  height: 32px;
+  
+  /* Glass effect */
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(4px); /* Blurs the image behind the button */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 6;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  color: white;
+}
+
+/* Make the arrows smaller too */
+.slider-button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.image-slider {
+    width: 50vw;
+}
+
+.gallery {
+    margin-top: 3rem;
+}
+
+@media screen and (max-width: 1000px){
+    .image-slider {
+        width: 70vw;
+    }
+    .gallery {
+        margin-top: unset;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .image-slider {
+        width: 80vw;
+    }
+}
