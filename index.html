@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="gallery"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+
+<script>
+$("#gallery").nanogallery2({
+  itemsBaseURL: "images/",
+  items: [
+    { src: "full/101_4477.webp", srct: "thumb/101_4477.webp", title: "Photo 1" },
+    { src: "photo2.jpg", srct: "photo2.jpg", title: "Photo 2" }
+  ]
+});
+</script>
+
+</body>
+</html>
