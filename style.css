@@ -319,7 +319,7 @@ hr {
 
 /* XS (mobile) */
 @media (max-width: 575.98px) {
-  #gallery { min-height: 1200px; }
+  #gallery { min-height: 800px; }
 }
 
 @media screen and (max-width: 1000px){
