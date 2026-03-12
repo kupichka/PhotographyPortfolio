@@ -312,6 +312,13 @@ hr {
   min-height: 740px;
 }
 
+a {
+    color: #ffbd61;
+}
+a:visited {
+    color: #fca23c;
+}
+
 /* SM (>=576px && <768px) — same as default, kept for clarity */
 @media (min-width: 576px) and (max-width: 767.98px) {
   #gallery { min-height: 720px; }
