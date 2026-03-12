@@ -38,9 +38,81 @@
   </div>
   
   <hr style="margin-top: 3.4rem; margin-bottom: 3rem;">
-  <div class = "heading" style="margin-bottom: 2rem; text-align: center">Видео проекти</div>
-  <div id="video-gallery"></div>
+  <div id="video-projects">
+    <div class="heading" style="margin-bottom: 3rem; text-align: center; color: white; font-size: 2rem;">Видео проекти</div>
 
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div class="timeline-date">2026</div>
+          <div class="marker-circle"></div>
+          <h3 class="project-title">"Élan - Nightwish" cover</h3>
+        </div>
+        
+        <div class="item-content">
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/_L2K_EXU89Q" allowfullscreen></iframe>
+          </div>
+          <div class="description-box">
+            <p>Музикално видео, заснето и обработено от мен. С него участваме в <a href="https://www.cambridgeschools.bg/%D1%85-%D0%BC-%D1%81%D1%8A%D1%81%D1%82%D0%B5%D0%B7%D0%B0%D0%BD%D0%B8%D0%B5-2026">Художествено-музикален конкурс</a> на Кеймбридж. Заснето е с две различни камери, което изисква напасване на цветовете. Много ми харесва прехода около 3:01.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div class="timeline-date">2024/6</div>
+          <div class="marker-circle"></div>
+          <h3 class="project-title">Таймлапс на сторежа в НПМГ (продължаващ)</h3>
+        </div>
+        
+        <div class="item-content">
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/yCXwcSIZUHI" allowfullscreen></iframe>
+          </div>
+          <div class="description-box">
+            <p>Таймлапс на строежа в двора на НПМГ, сниман с доста усилия от едно и също място и доста сложно наместван с помощта на Davinci Resolve.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div class="timeline-date">2024</div>
+          <div class="marker-circle"></div>
+          <h3 class="project-title">Geddan</h3>
+        </div>
+        
+        <div class="item-content">
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/cAK3WBueba0" allowfullscreen></iframe>
+          </div>
+          <div class="description-box">
+            <p>Кратко забавно видео, напаснато на ръка от доста снимки през различни дни. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <div class="timeline-date">2023</div>
+          <div class="marker-circle"></div>
+          <h3 class="project-title">Реклама за Ирландия</h3>
+        </div>
+        
+        <div class="item-content">
+          <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/6usovabnIww" allowfullscreen></iframe>
+          </div>
+          <div class="description-box">
+            <p>Домашно по английски за училище в 7. клас. Тук се запознах с motion tracking в Davinci Resolve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
   <script>
@@ -75,19 +147,9 @@
         "title": "IMG_0289"
       },
       {
-        "src": "images/full/IMG_0299.webp",
-        "srct": "images/thumb/IMG_0299.webp",
-        "title": "IMG_0299"
-      },
-      {
         "src": "images/full/IMG_0863.webp",
         "srct": "images/thumb/IMG_0863.webp",
         "title": "IMG_0863"
-      },
-      {
-        "src": "images/full/IMG_1828.webp",
-        "srct": "images/thumb/IMG_1828.webp",
-        "title": "IMG_1828"
       },
       {
         "src": "images/full/IMG_1831.webp",
@@ -281,7 +343,6 @@
     touchAutoOpenDelay: 500,
 
     // LIGHTBOX
-    viewerToolbar: { display: false },
     viewerTools: {
       topLeft: 'label',
       topRight: 'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
@@ -380,6 +441,33 @@
     });
   });
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.timeline-item');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const date = entry.target.querySelector('.timeline-date');
+            const title = entry.target.querySelector('.project-title');
+            const video = entry.target.querySelector('.video-box');
+            const desc = entry.target.querySelector('.description-box');
+
+            if (date) date.classList.add('in-view-date');
+            if (title) title.classList.add('in-view-title');
+
+            // stagger embed & description
+            if (video) setTimeout(() => video.classList.add('in-view-video'), 150);
+            if (desc) setTimeout(() => desc.classList.add('in-view-desc'), 300);
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      items.forEach(item => observer.observe(item));
+    });
+    </script>
 </body>
 </html>
 

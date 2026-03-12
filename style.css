@@ -1,3 +1,7 @@
+:root {
+  --timeline-left: 120px; /* Distance from left for the line */
+}
+
 body {
     background-color: #12121a;
     color: #ffecd6;
@@ -8,10 +12,15 @@ hr {
     color: #4e204c;
 }
 
+#gallery{
+    margin: 20px;
+    margin-bottom: unset;
+}
+
 .heading {
   font-family:"Forum", serif;
   font-weight: bold;
-  font-size: 1.75rem;
+  font-size: 2.2rem;
 }
 
 /* Container setup */
@@ -139,6 +148,180 @@ hr {
     margin-top: 3rem;
 }
 
+/* Makes sure that the image ips scaled in such a way so that the watermark is visible in the bottom right */
+.imgCurrent, .nGY2ViewerMediaPan {
+  scale: 0.9;
+}
+
+#video-projects {
+  padding: 40px;
+  padding-top: 0px;
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* The Vertical Line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--timeline-left); /* Fixed variable name */
+  width: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+/* --- THE MAGIC ALIGNMENT CONTAINER --- */
+.item-header {
+  display: flex;
+  align-items: center; /* Vertically centers the date, dot, and title */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-date {
+  box-sizing: border-box; /* CRITICAL: Keeps width strict so it doesn't cross the line */
+  width: var(--timeline-left); /* Fixed variable name */
+  padding-right: 35px; 
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+/* The Horizontal Connecting Line */
+.timeline-date::after {
+  content: '';
+  position: absolute;
+  right: 12px; /* This is the end point near the dot */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px; /* I slightly increased the width to make the fade more noticeable */
+  height: 2px;
+  
+  /* The Magic: Fades from 50% white to 0% white (transparent) */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* Your Glass Dot */
+.marker-circle {
+  position: absolute;
+  left: var(--timeline-left); /* Fixed variable name */
+  transform: translateX(-50%); 
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.1); 
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.project-title {
+  margin: 0;
+  padding-left: 25px; /* Pushes the title to the right of the dot */
+  font-size: 1.5rem;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+}
+
+/* --- CONTENT STYLES --- */
+.item-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding-left: calc(var(--timeline-left) + 25px); /* Fixed variable name */
+}
+
+.video-box {
+  flex: 0 0 50%;
+  min-width: 300px;
+}
+
+.video-box iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.description-box {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  background: #211735; /* Your requested color! */
+  padding: 20px 25px;
+  border-radius: 8px;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* All elements start hidden */
+.timeline-date,
+.project-title,
+.video-box,
+.description-box {
+  opacity: 0;
+  position: relative;
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+/* Horizontal offsets for fade-in direction */
+.timeline-date {
+  transform: translateX(20px); /* left of dot → slide left */
+}
+
+.project-title {
+  transform: translateX(-20px); /* right of dot → slide right */
+}
+
+.video-box {
+  transform: translateX(-30px); /* right of line → slide right */
+}
+
+.description-box {
+  transform: translateX(-60px); /* further right → slide right with stagger */
+}
+
+/* In-view state */
+.in-view-date { opacity: 1; transform: translateX(0); }
+.in-view-title { opacity: 1; transform: translateX(0); }
+.in-view-video { opacity: 1; transform: translateX(0); }
+.in-view-desc { opacity: 1; transform: translateX(0); }
+
+
+/* prevent page jiggle */
+/* default / MD+ */
+#gallery {
+  min-height: 740px;
+}
+
+/* SM (>=576px && <768px) — same as default, kept for clarity */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #gallery { min-height: 720px; }
+}
+
+/* XS (mobile) */
+@media (max-width: 575.98px) {
+  #gallery { min-height: 1200px; }
+}
+
 @media screen and (max-width: 1000px){
     .image-slider {
         width: 70vw;
@@ -152,4 +335,76 @@ hr {
     .image-slider {
         width: 80vw;
     }
+}
+
+/* Mobile Adaptation for Video Timeline */
+@media screen and (max-width: 1000px) {
+  :root {
+    /* Move the line closer to the left edge to save space */
+    --timeline-left: 10px; 
+  }
+
+  #video-projects{
+    padding: 20px;
+    padding-top: 0px;
+  }
+
+  .timeline-line {
+    /* Keeps the line visible but tucked away */
+    left: var(--timeline-left);
+  }
+
+  .item-header {
+    /* Stack Date and Title vertically */
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: calc(var(--timeline-left) + 25px);
+    margin-bottom: 15px;
+  }
+
+  .timeline-date {
+    width: auto; /* Allow it to take only needed space */
+    text-align: left;
+    padding-right: 0;
+    font-size: 0.9rem; /* Slightly smaller */
+    color: rgba(255, 255, 255, 0.5); /* Less intrusive dimmed color */
+    margin-bottom: 4px;
+  }
+
+  .timeline-date::after {
+    /* Hide the horizontal connecting line on mobile */
+    display: none;
+  }
+
+  .marker-circle {
+    /* Keeps the dot aligned with the new line position */
+    left: var(--timeline-left);
+    top: 10px; /* Adjust based on your title height */
+    transform: translateX(-50%);
+  }
+
+  .project-title {
+    padding-left: 0; /* Reset padding since header now has it */
+    font-size: 1.25rem;
+  }
+
+  .item-content {
+    /* Stack Video and Description */
+    flex-direction: column;
+    padding-left: calc(var(--timeline-left) + 25px);
+    gap: 20px;
+  }
+
+  .video-box {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: unset; /* Allow it to shrink to mobile width */
+  }
+
+  .description-box {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    padding: 15px;
+  }
 }
