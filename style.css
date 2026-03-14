@@ -156,8 +156,6 @@ hr {
 #video-projects {
   padding: 40px;
   padding-top: 0px;
-  background: #111;
-  color: white;
   font-family: sans-serif;
 }
 
@@ -174,7 +172,7 @@ hr {
   bottom: 0;
   left: var(--timeline-left); /* Fixed variable name */
   width: 2px;
-  background: rgba(255, 255, 255, 0.3);
+  background: #3b1139;
   z-index: 1;
   transform: translateX(-50%);
 }
@@ -199,7 +197,7 @@ hr {
   text-align: right;
   font-weight: bold;
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffecd6cc;
   position: relative;
 }
 
