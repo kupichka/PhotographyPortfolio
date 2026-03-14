@@ -303,13 +303,6 @@ hr {
 .in-view-video { opacity: 1; transform: translateX(0); }
 .in-view-desc { opacity: 1; transform: translateX(0); }
 
-
-/* prevent page jiggle */
-/* default / MD+ */
-#gallery {
-  min-height: 740px;
-}
-
 a {
     color: #ffbd61;
 }
@@ -317,10 +310,16 @@ a:visited {
     color: #fca23c;
 }
 
+/* prevent page jiggle */
+/* default / MD+ */
+#gallery {
+  min-height: 520px;
+} 
+
 /* SM (>=576px && <768px) — same as default, kept for clarity */
-@media (min-width: 576px) and (max-width: 767.98px) {
+/* @media (min-width: 576px) and (max-width: 767.98px) {
   #gallery { min-height: 720px; }
-}
+} */
 
 /* XS (mobile) */
 @media (max-width: 575.98px) {
@@ -343,7 +342,7 @@ a:visited {
 }
 
 /* Mobile Adaptation for Video Timeline */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 990px) {
   :root {
     /* Move the line closer to the left edge to save space */
     --timeline-left: 10px; 
