@@ -17,13 +17,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- <div class="heading">Галерия</div>
-  <hr> -->
   <div id="gallery"></div>
 
   <hr style="margin-top: 3.4rem; margin-bottom: 3rem;">
-  <div class = "heading" style="margin-bottom: 2rem; text-align: center">Технически поправки</div>
 
+  <div class = "heading" style="margin-bottom: 2rem; text-align: center">Технически поправки</div>
   <div class="image-slider">
     <span class="label-before">Преди</span> <span class="label-after">След</span>   <img src="./images/comparisons/upside down certificate fixed.jpg" alt="Fixed Certificate" class="image-after">
     <img src="./images/comparisons/upside down certificate.jpg" alt="Upside Down Certificate" class="image-before">
@@ -373,75 +371,6 @@
     // DEEP LINKING
     locationHash: true
   });
-  jQuery("#video-gallery").nanogallery2({
-
-    // CONTENT SOURCE
-    itemsBaseURL: "",
-    items: [
-      {
-        "src": "https://www.youtube.com/watch?v=_L2K_EXU89Q",
-        "title": "\"Élan - Nightwish\" cover",
-      },
-      {
-        "src": "https://www.youtube.com/watch?v=cAK3WBueba0",
-        "title": "Geddan",
-      },
-      {
-        "src": "https://www.youtube.com/watch?v=QDRbgEX9UGA",
-        "title": "Bad Apple!!",
-      },
-      {
-        "src": "https://www.youtube.com/watch?v=yCXwcSIZUHI",
-        "title": "Таймлапс на строеж",
-      },
-      {
-        "src": "https://www.youtube.com/watch?v=6usovabnIww",
-        "title": "Реклама за Ирландия",
-      }
-    ],
-    // GALLERY AND THUMBNAIL LAYOUT
-    galleryDisplayMode: 'fullContent',
-    gallerySorting: 'random',
-
-
-    // thumbnail
-    thumbnailHeight: 200, thumbnailWidth: 350,
-    thumbnailGutterWidth: 2,
-    thumbnailGutterHeight: 2,
-    thumbnailBorderHorizontal: 0,
-    thumbnailBorderVertical: 0,
-
-    thumbnailAlignment: 'fillWidth',
-
-    // THUMBNAIL TOOLS & LABEL
-    thumbnailToolbarImage : null,
-    thumbnailToolbarAlbum: null,
-    thumbnailLabel: { display: true, position:'overImageOnBottom', hideIcons: true, titleFontSize: '1.7em', align: 'center', titleMultiLine:true, displayDescription: false},
-
-    // DISPLAY ANIMATION
-    thumbnailL1DisplayTransition: 'flipUp',         // first level display animation
-    thumbnailDisplayTransition: 'slideDown',        // other levels display animation
-    thumbnailDisplayTransitionDuration: 500,
-    thumbnailDisplayInterval: 30,
-
-    // THUMBNAIL'S HOVER ANIMATION
-    // first level
-    thumbnailBuildInit2: 'title_font-weight_bold',
-    thumbnailHoverEffect2: 'imageBlurOff',
-    // other levels -> no hover effect
-    // touch handling
-    touchAnimation: false,
-    touchAutoOpenDelay: 800,
-
-    // GALLERY THEME
-    galleryTheme : { 
-      thumbnail: { titleShadow : '', descriptionShadow : 'none', titleColor: '#fff', borderColor: '#000' },
-      navigationBreadcrumb: { background : '#3C4B5B' },
-    },
-    
-    // DEEP LINKING
-    locationHash: false
-  });
 
   document.addEventListener('DOMContentLoaded', () => {
     // Find all sliders on the page
@@ -484,7 +413,7 @@
 
       items.forEach(item => observer.observe(item));
     });
-    </script>
+  </script>
 </body>
 </html>
 
