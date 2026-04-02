@@ -389,32 +389,49 @@
   });
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const items = document.querySelectorAll('.timeline-item');
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Observer for the Header (Date & Title)
+    const headerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const date = entry.target.querySelector('.timeline-date');
+        const title = entry.target.querySelector('.project-title');
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const date = entry.target.querySelector('.timeline-date');
-            const title = entry.target.querySelector('.project-title');
-            const video = entry.target.querySelector('.video-box');
-            const desc = entry.target.querySelector('.description-box');
-
-            if (date) date.classList.add('in-view-date');
-            if (title) title.classList.add('in-view-title');
-
-            // stagger embed & description
-            if (video) setTimeout(() => video.classList.add('in-view-video'), 150);
-            if (desc) setTimeout(() => desc.classList.add('in-view-desc'), 300);
-          }
-        });
-      }, {
-        threshold: 0.2
+        if (entry.isIntersecting) {
+          if (date) date.classList.add('in-view-date');
+          if (title) title.classList.add('in-view-title');
+        } else {
+          if (date) date.classList.remove('in-view-date');
+          if (title) title.classList.remove('in-view-title');
+        }
       });
+    }, { threshold: 0.2 });
 
-      items.forEach(item => observer.observe(item));
+    // 2. Observer for the Content (Video & Description)
+    const contentObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target.querySelector('.video-box');
+        const desc = entry.target.querySelector('.description-box');
+
+        if (entry.isIntersecting) {
+          // You can still keep the stagger here if you like!
+          if (video) setTimeout(() => video.classList.add('in-view-video'), 100);
+          if (desc) setTimeout(() => desc.classList.add('in-view-desc'), 250);
+        } else {
+          if (video) video.classList.remove('in-view-video');
+          if (desc) desc.classList.remove('in-view-desc');
+        }
+      });
+    }, { threshold: 0.4 }); // You can change this to 0.5 if the video should wait longer
+
+    // Initialize both observers on the items
+    const items = document.querySelectorAll('.timeline-item');
+    items.forEach(item => {
+      headerObserver.observe(item);
+      contentObserver.observe(item);
     });
-  </script>
+  });
+</script>
 </body>
 </html>
 
