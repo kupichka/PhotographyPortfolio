@@ -60,44 +60,18 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.5; /* Make it invisible */
+  opacity: 0; /* Make it invisible */
   cursor: ew-resize; /* Show drag cursor */
   z-index: 10;
   margin: 0;
-
-  /* CRITICAL ADDITIONS: */
-  /* -webkit-appearance: none;
-  appearance: none;
-  background: transparent; */
 }
-
-/* Make the invisible WebKit (Chrome/Safari/iOS) thumb tall and wide */
-.slider-input::-webkit-slider-thumb {
-  /* -webkit-appearance: none;
-  appearance: none; */
-  width: 40px; /* Wide enough for an easy touch target */
-  height: 1000px; /* Super tall hack to cover the full line vertically */
-  background: black; /* Color doesn't matter due to opacity: 0 on parent */
-  cursor: ew-resize;
-}
-
-/* Make the invisible Firefox thumb tall and wide */
-.slider-input::-moz-range-thumb {
-  width: 40px;
-  height: 1000px;
-  background: black;
-  cursor: ew-resize;
-  border: none;
-}
-
-/* Update these specific sections in your CSS */
 
 .slider-line {
   position: absolute;
   top: 0;
   bottom: 0;
   left: var(--position);
-  width: 2px; /* Thinner line */
+  width: 1px; /* Thinner line */
   background: rgba(255, 255, 255, 0.7); /* Semi-transparent */
   transform: translateX(-50%);
   pointer-events: none;
@@ -111,8 +85,8 @@ hr {
   transform: translate(-50%, -50%);
   
   /* Sizing it down */
-  width: 32px; 
-  height: 32px;
+  width: 40px; 
+  height: 40px;
   
   /* Glass effect */
   background: rgba(255, 255, 255, 0.2); 
