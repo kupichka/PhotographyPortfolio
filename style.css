@@ -142,11 +142,11 @@ hr {
 }
 
 .image-slider {
-    width: 50vw;
+  width: 50vw;
 }
 
 .gallery {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
 /* Makes sure that the image ips scaled in such a way so that the watermark is visible in the bottom right */
