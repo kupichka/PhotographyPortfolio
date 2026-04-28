@@ -60,21 +60,21 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0; /* Make it invisible */
+  opacity: 0.5; /* Make it invisible */
   cursor: ew-resize; /* Show drag cursor */
   z-index: 10;
   margin: 0;
 
   /* CRITICAL ADDITIONS: */
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   appearance: none;
-  background: transparent;
+  background: transparent; */
 }
 
 /* Make the invisible WebKit (Chrome/Safari/iOS) thumb tall and wide */
 .slider-input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
+  /* -webkit-appearance: none;
+  appearance: none; */
   width: 40px; /* Wide enough for an easy touch target */
   height: 1000px; /* Super tall hack to cover the full line vertically */
   background: black; /* Color doesn't matter due to opacity: 0 on parent */
