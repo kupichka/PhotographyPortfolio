@@ -23,7 +23,7 @@ hr {
   font-size: 2.2rem;
 }
 
-.navigation {
+.navigation, h3 {
   font-family: "Forum", serif;
 }
 
