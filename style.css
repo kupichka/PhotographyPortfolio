@@ -335,6 +335,16 @@ a:visited {
   column-gap: 20px;
 }
 
+@media screen and (max-width: 540px) {
+  .navigation-name {
+    font-size: 25px;
+    flex: 1 0 60%;
+  }
+  .navigation-right {
+    flex: 1 0 40%;
+  }
+}
+
 .navigation-name a, .navigation-name a:visited {
   text-decoration: none;
   color: #50dce8;
