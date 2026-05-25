@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta property="og:title" content="Галерия Борислав">
-  <meta property="og:description" content="Колекция от най-добрата ми работа досега">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Портфолио | Борислав Дочев</title>
+  <meta name="description" content="Официално фотографско портфолио на Борислав Дочев от НПМГ. Колекция от авторски снимки и събития.">
+
+  <meta property="og:title" content="Портфолио | Борислав Дочев">
+  <meta property="og:description" content="Официално фотографско портфолио на Борислав Дочев от НПМГ. Колекция от авторски снимки и събития">
   <meta property="og:image" content="https://photos.kupichka.org/images/thumb/101_4477.webp">
   <meta property="og:image:width" content="400">
   <meta property="og:image:height" content="300">
-  <meta property="og:image:alt" content="Харизматична снимка на синеоко момче в студени цветове">
+  <meta property="og:image:alt" content="Снимка на синеоко момче в студени цветове">
   <meta property="og:url" content="https://photos.kupichka.org/">
   <meta property="og:type" content="website">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Портфолио на Борислав Дочев от НПМГ, съдъжащо част от работата ми като фотограф">
+  
   <link href="./style.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,41 +23,56 @@
   <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="navigation">
+    <h1 class="navigation-name">
+      <a href="./">Борислав Дочев</a>
+    </h1>
+    <div class="navigation-right">
+      <div class="navigation-events">
+        <a href="./events">Събития</a>
+      </div>
+      <div class="navigation-about">
+        <a href="./about">За мен</a>
+      </div>
+    </div>
+  </div>
   <div role="main" id="gallery"></div>
 
   <hr style="margin-top: 3.4rem; margin-bottom: 3rem;">
 
-  <div class = "heading" style="margin-bottom: 2rem; text-align: center">Ретуширане</div>
-  <div class="image-slider">
-    <span class="label-before">Преди</span> <span class="label-after">След</span>
-    <img src="./images/comparisons/midichki before.webp" alt="No highly visible acne" fetchpriority="high" class="image-after">
-    <img src="./images/comparisons/midichki after.webp" alt="Visible acne" fetchpriority="high" class="image-before">
-    
-    <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input">
-    
-    <div class="slider-line"></div>
-    <div class="slider-button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+  <div class="heading" style="margin-bottom: 2rem; text-align: center">Ретуширане</div>
+  <div style="display: flex; flex-wrap: wrap; align-items: center;">
+    <div class="image-slider">
+      <span class="label-before">Преди</span> <span class="label-after">След</span>
+      <img src="./images/comparisons/midichki before.webp" alt="No highly visible acne" fetchpriority="high" class="image-after">
+      <img src="./images/comparisons/midichki after.webp" alt="Visible acne" fetchpriority="high" class="image-before">
+      
+      <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input">
+      
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+    <div class="image-slider">
+      <span class="label-before">Преди</span> <span class="label-after">След</span>
+      <img src="./images/comparisons/upside down certificate fixed.webp" alt="Fixed Certificate" fetchpriority="high" class="image-after">
+      <img src="./images/comparisons/upside down certificate.webp" alt="Upside Down Certificate" fetchpriority="high" class="image-before">
+      
+      <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input">
+      
+      <div class="slider-line"></div>
+      <div class="slider-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
     </div>
   </div>
-  <div class="image-slider">
-    <span class="label-before">Преди</span> <span class="label-after">След</span>
-    <img src="./images/comparisons/upside down certificate fixed.webp" alt="Fixed Certificate" fetchpriority="high" class="image-after">
-    <img src="./images/comparisons/upside down certificate.webp" alt="Upside Down Certificate" fetchpriority="high" class="image-before">
-    
-    <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input">
-    
-    <div class="slider-line"></div>
-    <div class="slider-button">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </div>
-  </div>
-  
+
   <hr style="margin-top: 3.4rem; margin-bottom: 3rem;">
   <div id="video-projects">
-    <div class="heading" style="margin-bottom: 3rem; text-align: center;">Видео проекти</div>
+    <div class="heading" style="margin-bottom: 2rem; text-align: center;">Видео проекти</div>
 
     <div class="timeline-container">
       <div class="timeline-line"></div>
@@ -100,10 +120,10 @@
         
         <div class="item-content">
           <div class="video-box">
-            <iframe title="Таймлапс на строежа в НПМГ" src="https://www.youtube.com/embed/yCXwcSIZUHI" allowfullscreen></iframe>
+            <iframe title="Таймлапс на строежа в НПМГ" src="https://www.youtube.com/embed/CsDGgKMVqRU" allowfullscreen></iframe>
           </div>
           <div class="description-box">
-            <p>Таймлапс на строежа в двора на НПМГ, сниман с доста усилия от едно и също място и доста сложно наместван с помощта на Davinci Resolve. Сторежът е започнат 2024 и все още го снимам.</p>
+            <p>Таймлапс на строежа в двора на НПМГ, сниман с доста усилия от едно и също място и доста сложно наместван с помощта на <a href="https://blender.org" target="_blank">Blender</a> и Davinci Resolve. Сторежът е започнат 2024 и все още го снимам.</p>
           </div>
         </div>
       </div>
@@ -177,38 +197,38 @@
         "title": "IMG_0289"
       },
       {
-        "src": "images/full/IMG_0726.webp",
-        "srct": "images/thumb/IMG_0726.webp",
+        "src": "images/full/hjIMG_0726_01.webp",
+        "srct": "images/thumb/hjIMG_0726_01.webp",
         "title": "IMG_0726"
       },
       {
-        "src": "images/full/IMG_0731.webp",
-        "srct": "images/thumb/IMG_0731.webp",
+        "src": "images/full/hjIMG_0731.webp",
+        "srct": "images/thumb/hjIMG_0731.webp",
         "title": "IMG_0731"
       },
       {
-        "src": "images/full/IMG_0753.webp",
-        "srct": "images/thumb/IMG_0753.webp",
+        "src": "images/full/hjIMG_0753_01.webp",
+        "srct": "images/thumb/hjIMG_0753_01.webp",
         "title": "IMG_0753"
       },
       {
-        "src": "images/full/IMG_0768.webp",
-        "srct": "images/thumb/IMG_0768.webp",
+        "src": "images/full/hjIMG_0768_01.webp",
+        "srct": "images/thumb/hjIMG_0768_01.webp",
         "title": "IMG_0768"
       },
       {
-        "src": "images/full/IMG_0774.webp",
-        "srct": "images/thumb/IMG_0774.webp",
+        "src": "images/full/hjIMG_0774.webp",
+        "srct": "images/thumb/hjIMG_0774.webp",
         "title": "IMG_0774"
       },
       {
-        "src": "images/full/IMG_0779.webp",
-        "srct": "images/thumb/IMG_0779.webp",
+        "src": "images/full/hjIMG_0779.webp",
+        "srct": "images/thumb/hjIMG_0779.webp",
         "title": "IMG_0779"
       },
       {
-        "src": "images/full/IMG_0815.webp",
-        "srct": "images/thumb/IMG_0815.webp",
+        "src": "images/full/hjIMG_0815.webp",
+        "srct": "images/thumb/hjIMG_0815.webp",
         "title": "IMG_0815"
       },
       {
@@ -217,18 +237,18 @@
         "title": "IMG_0863"
       },
       {
-        "src": "images/full/IMG_0875.webp",
-        "srct": "images/thumb/IMG_0875.webp",
+        "src": "images/full/hjIMG_0875.webp",
+        "srct": "images/thumb/hjIMG_0875.webp",
         "title": "IMG_0875"
       },
       {
-        "src": "images/full/IMG_1022.webp",
-        "srct": "images/thumb/IMG_1022.webp",
+        "src": "images/full/hjIMG_1022.webp",
+        "srct": "images/thumb/hjIMG_1022.webp",
         "title": "IMG_1022"
       },
       {
-        "src": "images/full/IMG_1041.webp",
-        "srct": "images/thumb/IMG_1041.webp",
+        "src": "images/full/hjIMG_1041.webp",
+        "srct": "images/thumb/hjIMG_1041.webp",
         "title": "IMG_1041"
       },
       {
@@ -237,8 +257,8 @@
         "title": "IMG_1127"
       },
       {
-        "src": "images/full/IMG_1141.webp",
-        "srct": "images/thumb/IMG_1141.webp",
+        "src": "images/full/hjIMG_1141.webp",
+        "srct": "images/thumb/hjIMG_1141.webp",
         "title": "IMG_1141"
       },
       {
@@ -349,7 +369,7 @@
       {
         "src": "images/full/kamen.webp",
         "srct": "images/thumb/kamen.webp",
-        "title": "kamen"
+        "title": "P1000268"
       },
       {
         "src": "images/full/P1000648.webp",
@@ -473,65 +493,65 @@
   });
   </script>
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Find all sliders on the page
-    const sliders = document.querySelectorAll('.image-slider');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Find all sliders on the page
+      const sliders = document.querySelectorAll('.image-slider');
 
-    sliders.forEach(slider => {
-      // Find the input within this specific slider
-      const input = slider.querySelector('.slider-input');
+      sliders.forEach(slider => {
+        // Find the input within this specific slider
+        const input = slider.querySelector('.slider-input');
 
-      // Update the CSS variable when the input changes
-      input.addEventListener('input', (e) => {
-        slider.style.setProperty('--position', `${e.target.value}%`);
+        // Update the CSS variable when the input changes
+        input.addEventListener('input', (e) => {
+          slider.style.setProperty('--position', `${e.target.value}%`);
+        });
       });
     });
-  });
   </script>
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Observer for the Header (Date & Title)
-    const headerObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const date = entry.target.querySelector('.timeline-date');
-        const title = entry.target.querySelector('.project-title');
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Observer for the Header (Date & Title)
+      const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const date = entry.target.querySelector('.timeline-date');
+          const title = entry.target.querySelector('.project-title');
 
-        if (entry.isIntersecting) {
-          if (date) date.classList.add('in-view-date');
-          if (title) title.classList.add('in-view-title');
-        } else {
-          if (date) date.classList.remove('in-view-date');
-          if (title) title.classList.remove('in-view-title');
-        }
+          if (entry.isIntersecting) {
+            if (date) date.classList.add('in-view-date');
+            if (title) title.classList.add('in-view-title');
+          } else {
+            if (date) date.classList.remove('in-view-date');
+            if (title) title.classList.remove('in-view-title');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      // 2. Observer for the Content (Video & Description)
+      const contentObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target.querySelector('.video-box');
+          const desc = entry.target.querySelector('.description-box');
+
+          if (entry.isIntersecting) {
+            // You can still keep the stagger here if you like!
+            if (video) setTimeout(() => video.classList.add('in-view-video'), 100);
+            if (desc) setTimeout(() => desc.classList.add('in-view-desc'), 250);
+          } else {
+            if (video) video.classList.remove('in-view-video');
+            if (desc) desc.classList.remove('in-view-desc');
+          }
+        });
+      }, { threshold: 0.4 }); // You can change this to 0.5 if the video should wait longer
+
+      // Initialize both observers on the items
+      const items = document.querySelectorAll('.timeline-item');
+      items.forEach(item => {
+        headerObserver.observe(item);
+        contentObserver.observe(item);
       });
-    }, { threshold: 0.2 });
-
-    // 2. Observer for the Content (Video & Description)
-    const contentObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const video = entry.target.querySelector('.video-box');
-        const desc = entry.target.querySelector('.description-box');
-
-        if (entry.isIntersecting) {
-          // You can still keep the stagger here if you like!
-          if (video) setTimeout(() => video.classList.add('in-view-video'), 100);
-          if (desc) setTimeout(() => desc.classList.add('in-view-desc'), 250);
-        } else {
-          if (video) video.classList.remove('in-view-video');
-          if (desc) desc.classList.remove('in-view-desc');
-        }
-      });
-    }, { threshold: 0.4 }); // You can change this to 0.5 if the video should wait longer
-
-    // Initialize both observers on the items
-    const items = document.querySelectorAll('.timeline-item');
-    items.forEach(item => {
-      headerObserver.observe(item);
-      contentObserver.observe(item);
     });
-  });
-</script>
+  </script>
 </body>
 </html>
 

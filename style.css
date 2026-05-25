@@ -3,19 +3,17 @@
 }
 
 body {
-    background-color: #12121a;
-    color: #ffecd6;
-    font-family: 'Kollektif';
-    font-display: swap;
+  background-color: #12121a;
+  color: #ffecd6;
 }
 
 hr {
-    color: #4e204c;
+  color: #4e204c;
 }
 
 #gallery{
-    margin: 20px;
-    margin-bottom: unset;
+  margin: 20px;
+  margin-bottom: unset;
 }
 
 .heading {
@@ -24,11 +22,19 @@ hr {
   font-size: 2.2rem;
 }
 
+h1, h3 {
+  font-family: "Forum", serif;
+}
+
+h1 {
+  text-align: center;
+}
+
 /* Container setup */
 .image-slider {
   position: relative;
-  width: 100%;
-  max-width: 800px; /* Adjust to your preference */
+  width: 45vw;
+  max-width: 800px;
   margin: 0 auto 2rem;
   overflow: hidden;
   border-radius: 8px; /* Optional: gives it nice rounded corners */
@@ -137,10 +143,6 @@ hr {
 
 .label-after {
   left: 15px;
-}
-
-.image-slider {
-  width: 50vw;
 }
 
 .gallery {
@@ -279,6 +281,10 @@ hr {
   transition: transform 0.6s ease-in-out, opacity 0.6s ease-out;
 }
 
+.timeline-date {
+  font-family: 'Forum';
+}
+
 /* Horizontal offsets for fade-in direction */
 .timeline-date {
   transform: translateX(20px); /* left of dot → slide left */
@@ -303,17 +309,46 @@ hr {
 .in-view-desc { opacity: 1; transform: translateX(0); }
 
 a {
-    color: #ffbd61;
+  color: #ffbd61;
 }
 a:visited {
-    color: #fca23c;
+  color: #fca23c;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navigation-name {
+  flex: 1 0 50%;
+}
+
+.navigation-right {
+  display: flex; 
+  align-items: center;
+  justify-content: right;
+  flex: 1 0 50%;
+  column-gap: 20px;
+}
+
+.navigation-name a, .navigation-name a:visited {
+  text-decoration: none;
+  color: #50dce8;
+}
+
+.navigation-name a:hover {
+  color: #56DCC6;
 }
 
 /* prevent page jiggle */
 /* default / MD+ */
-#gallery {
+/* #gallery {
   min-height: 520px;
-} 
+}  */
 
 /* SM (>=576px && <768px) — same as default, kept for clarity */
 /* @media (min-width: 576px) and (max-width: 767.98px) {
@@ -321,9 +356,9 @@ a:visited {
 } */
 
 /* XS (mobile) */
-@media (max-width: 575.98px) {
+/* @media (max-width: 500px) {
   #gallery { min-height: 800px; }
-}
+} */
 
 @media screen and (max-width: 1000px){
     .image-slider {
