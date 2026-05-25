@@ -12,7 +12,19 @@ $highQualityList = @(
     "hjIMG_0753_01.jpg",
     "hjIMG_0768_01.jpg",
     "hjIMG_0822.jpg",
-    "hjIMG_1041.jpg"
+    "hjIMG_1041.jpg",
+    "hjIMG_0737.jpg",
+    "hjIMG_0793.jpg",
+    "hjIMG_0815.jpg",
+    "hjIMG_1104.jpg",
+    "hjIMG_0741.jpg",
+    "hjIMG_0779.jpg",
+    "hjIMG_1109.jpg",
+    "hjIMG_0941.jpg",
+    "hjIMG_0912.jpg",
+    "hjIMG_0930.jpg",
+    "hjIMG_1022.jpg",
+    "hjIMG_1065.jpg"
 )
 
 # Standard vs High Quality Thumbnail Settings

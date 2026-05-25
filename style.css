@@ -22,8 +22,12 @@ hr {
   font-size: 2.2rem;
 }
 
-h1, h3 {
+.navigation {
   font-family: "Forum", serif;
+}
+
+.navigation-right {
+  font-size: 20px;
 }
 
 h1 {
@@ -341,6 +345,7 @@ a:visited {
     flex: 1 0 60%;
   }
   .navigation-right {
+    font-size: 16px;
     flex: 1 0 40%;
   }
 }
