@@ -407,16 +407,16 @@ a:visited {
   .events-cards-container {
     justify-content: space-around;
   }
-  .events-date {
+  /* .events-date {
     text-align: center;
-  }
+  } */
 }
 
 /* thing thing thing on \2026_05_15 */
 /* Container for the whole video section */
 .performances-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 25px;
   margin-top: 20px;
 }

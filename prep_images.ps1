@@ -24,7 +24,8 @@ $highQualityList = @(
     "hjIMG_0912.jpg",
     "hjIMG_0930.jpg",
     "hjIMG_1022.jpg",
-    "hjIMG_1065.jpg"
+    "hjIMG_1065.jpg",
+	"nikola-nikolov.png"
 )
 
 # Standard vs High Quality Thumbnail Settings
@@ -40,7 +41,7 @@ mkdir "$dest\thumb" -Force | Out-Null
 mkdir "$dest\full"  -Force | Out-Null
 
 # Get all .jpg and .heic files from the source directory
-$files = Get-ChildItem -Path $src -File | Where-Object { $_.Extension -in '.jpg', '.heic' }
+$files = Get-ChildItem -Path $src -File | Where-Object { $_.Extension -in '.jpg', '.heic', '.png' }
 
 foreach ($file in $files) {
     $baseName = $file.BaseName
