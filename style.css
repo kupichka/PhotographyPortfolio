@@ -23,7 +23,7 @@ hr {
   font-size: 2.2rem;
 }
 
-.navigation, h3 {
+.navigation, h2, h3 {
   font-family: "Forum", serif;
 }
 
@@ -340,6 +340,162 @@ a:visited {
   column-gap: 20px;
 }
 
+.navigation-name a, .navigation-name a:visited {
+  text-decoration: none;
+  color: #50dce8;
+}
+
+.navigation-name a:hover {
+  color: #56DCC6;
+}
+
+.event-title {
+  text-align: center;
+}
+
+/* Events page */
+.events-card-vertical {
+  background-color: #2b105066;
+  border-radius: 8px;
+  max-width: 420px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.events-card-vertical .events-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.events-card-vertical .events-body {
+  padding: 20px;
+}
+
+.events-card-vertical .events-title {
+  font-family: 'Forum', serif;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+.events-card-vertical .events-date {
+  font-family: 'Forum', serif;
+  font-size: 14px;
+  color: #ffecd6b5;
+  margin-bottom: 15px;
+}
+
+.events-card-vertical .events-description {
+  font-family: sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.events-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: left;
+}
+
+@media screen and (max-width: 1000px) {
+  .events-cards-container {
+    justify-content: space-around;
+  }
+  .events-date {
+    text-align: center;
+  }
+}
+
+/* thing thing thing on \2026_05_15 */
+/* Container for the whole video section */
+.performances-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Individual Video Card */
+.video-card {
+  background-color: #2b105066;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive Iframe Wrapper */
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000; /* Placeholder while video loads */
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Info Section under the video */
+.video-info {
+  padding: 15px;
+}
+
+.video-title {
+  font-family: 'Forum', serif;
+  font-size: 22px;
+  color: #ffecd6;
+  margin: 0 0 10px 0;
+}
+
+/* The Tag System */
+.performer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  background-color: #1a0833; /* Darker contrast against the card */
+  color: #ffbd61b5;
+  padding: 4px 12px;
+  border-radius: 20px; /* Gives the pill shape */
+  font-family: sans-serif;
+  font-size: 13px;
+  border: 1px solid #ffecd640; /* Subtle border for definition */
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: #ffecd6b5;
+  color: #1a0833;
+  border-color: #ffecd6b5;
+}
+
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: invert(88%) sepia(31%) saturate(471%) hue-rotate(311deg) brightness(109%) contrast(103%);
+}
+
+.icon-mic { background-image: url('../images/icons/mic-vocal.svg'); }
+.icon-guitar { background-image: url('../images/icons/guitar.svg'); }
+.icon-drum { background-image: url('../images/icons/drum.svg'); }
+.icon-piano { background-image: url('../images/icons/piano.svg') }
+
 @media screen and (max-width: 540px) {
   .navigation-name {
     font-size: 25px;
@@ -349,15 +505,6 @@ a:visited {
     font-size: 16px;
     flex: 1 0 40%;
   }
-}
-
-.navigation-name a, .navigation-name a:visited {
-  text-decoration: none;
-  color: #50dce8;
-}
-
-.navigation-name a:hover {
-  color: #56DCC6;
 }
 
 /* prevent page jiggle */
@@ -377,18 +524,21 @@ a:visited {
 } */
 
 @media screen and (max-width: 1000px){
-    .image-slider {
-        width: 70vw;
-    }
-    .gallery {
-        margin-top: unset;
-    }
+  .image-slider {
+    width: 70vw;
+  }
+  .gallery {
+    margin-top: unset;
+  }
 }
 
 @media screen and (max-width: 800px){
-    .image-slider {
-        width: 80vw;
-    }
+  .image-slider {
+    width: 80vw;
+  }
+  .navigation {
+    padding: 0;
+  }
 }
 
 /* Mobile Adaptation for Video Timeline */

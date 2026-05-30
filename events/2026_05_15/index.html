@@ -37,21 +37,61 @@
     </div>
   </div>
   <div style="margin-top: 20px;"></div>
-  <h2>Изпращане на НПМГ випуск 2025/26</h2>
+  <h2 class="event-title">Изпращане на НПМГ випуск 2025/26</h2>
   <div style="margin-top: 20px;"></div>
 
   <div role="main" id="gallery"></div>
   
   <hr style="margin-top: 3.4rem; margin-bottom: 3rem;">
-  <div id="videos"></div>
-  <p>Тази секция не е завършена и ще бъде разширена да включва и другите изпълнения:</p>
+  <p>Тази секция не е завършена и ще да включва следните изпълнения:</p>
   <ul>
     <li>Главната улица - Фактор</li>
     <li>Here I go again - Whitesnake</li>
     <li>We will rock you - Queen</li>
     <li>You give love a bad name - Bon Jovi</li>
+    <li>Тази песен не е за любов</li>
   </ul>
-  <iframe style="width: 300px; height: 200px;" title="Тази песен не е за любов" src="https://www.youtube.com/embed/yNugExsQhek" allowfullscreen></iframe>
+
+  <hr style="margin-top: 3.4rem; margin-bottom: 3rem;">
+  <div id="videos">
+    <p>Видеата са заснети от Никола Николов под ръководството на Борислав Дочев. Видео обработка също от Борисла Дочев. Аудио обработка от Камен Янев.</p>
+    
+    <div class="performances-grid">
+      
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe title="Тази песен не е за любов" src="https://www.youtube.com/embed/HdXprCBlpuw" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4 class="video-title">Тази песен не е за любов - Стефан Вълдобрев</h4>
+          <div class="performer-tags">
+            <a href="/performers/eva-dimkin" class="tag"><span class="icon icon-piano"></span> Ева Димкин</a>
+            <a href="/performers/kamen-argirov" class="tag"><span class="icon icon-guitar"></span> Камен Аргиров</a>
+            <a href="/performers/beloslava-petkova" class="tag"><span class="icon icon-drum"></span> Белослава Петкова</a>
+            <a href="/performers/angelina-popova" class="tag"><span class="icon icon-mic"></span> Ангелина Попова</a>
+            <a href="/performers/velin-tsvetkov" class="tag"><span class="icon icon-guitar"></span> Велин Цветков</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe title="Here I go again - Whitesnake" src="https://www.youtube.com/embed/6CkZpXwA4rE" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4 class="video-title">Here I go again - Whitesnake</h4>
+          <div class="performer-tags">
+            <a href="/performers/kiara-efremova" class="tag"><span class="icon icon-piano"></span> Киара Ефремова</a>
+            <a href="/performers/irina-mileva" class="tag"><span class="icon icon-mic"></span> Ирина Милева</a>
+            <a href="/performers/yoana-kalpachka" class="tag"><span class="icon icon-drum"></span> Йоана Калпачка</a>
+            <a href="/performers/daniel-petrov" class="tag"><span class="icon icon-guitar"></span> Даниел Петров</a>
+            <a href="/performers/andrea-petkova" class="tag"><span class="icon icon-guitar"></span> Андреа Петкова</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
@@ -317,25 +357,62 @@
       { w: 2, h: 2, c: 4, r: 14 },
       { w: 1, h: 2, c: 6, r: 14 }
     ],
-    galleryMosaicSM : [                     // layout for SM width
+    galleryMosaicSM : [                     
+      // --- BLOCK 1 (Rows 1 to 4) ---
       { w: 2, h: 2, c: 1, r: 1 },
       { w: 1, h: 1, c: 3, r: 1 },
       { w: 1, h: 1, c: 3, r: 2 },
       { w: 1, h: 2, c: 1, r: 3 },
       { w: 2, h: 1, c: 2, r: 3 },
       { w: 1, h: 1, c: 2, r: 4 },
-      { w: 1, h: 1, c: 3, r: 4 }
+      { w: 1, h: 1, c: 3, r: 4 },
+
+      // --- BLOCK 2 (Rows 5 to 8) ---
+      { w: 2, h: 2, c: 1, r: 5 },
+      { w: 1, h: 1, c: 3, r: 5 },
+      { w: 1, h: 1, c: 3, r: 6 },
+      { w: 1, h: 2, c: 1, r: 7 },
+      { w: 2, h: 1, c: 2, r: 7 },
+      { w: 1, h: 1, c: 2, r: 8 },
+      { w: 1, h: 1, c: 3, r: 8 },
+
+      // --- BLOCK 3 (Rows 9 to 12) ---
+      { w: 2, h: 2, c: 1, r: 9 },
+      { w: 1, h: 1, c: 3, r: 9 },
+      { w: 1, h: 1, c: 3, r: 10 },
+      { w: 1, h: 2, c: 1, r: 11 },
+      { w: 2, h: 1, c: 2, r: 11 },
+      { w: 1, h: 1, c: 2, r: 12 },
+      { w: 1, h: 1, c: 3, r: 12 }
     ],
+
     galleryMosaicXS : [
+      // --- BLOCK 1 (Rows 1 to 5) ---
       { w: 2, h: 2, c: 1, r: 1 },
       { w: 1, h: 1, c: 1, r: 3 },
       { w: 1, h: 1, c: 2, r: 3 },
       { w: 1, h: 2, c: 2, r: 4 },
       { w: 1, h: 1, c: 1, r: 4 },
-      { w: 1, h: 1, c: 1, r: 5 }
+      { w: 1, h: 1, c: 1, r: 5 },
+
+      // --- BLOCK 2 (Rows 6 to 10) ---
+      { w: 2, h: 2, c: 1, r: 6 },
+      { w: 1, h: 1, c: 1, r: 8 },
+      { w: 1, h: 1, c: 2, r: 8 },
+      { w: 1, h: 2, c: 2, r: 9 },
+      { w: 1, h: 1, c: 1, r: 9 },
+      { w: 1, h: 1, c: 1, r: 10 },
+
+      // --- BLOCK 3 (Rows 11 to 15) ---
+      { w: 2, h: 2, c: 1, r: 11 },
+      { w: 1, h: 1, c: 1, r: 13 },
+      { w: 1, h: 1, c: 2, r: 13 },
+      { w: 1, h: 2, c: 2, r: 14 },
+      { w: 1, h: 1, c: 1, r: 14 },
+      { w: 1, h: 1, c: 1, r: 15 }
     ],
 
-    galleryMaxRows: 5,
+    galleryMaxRows: 1,
     galleryDisplayMode: 'rows',
 
     gallerySorting: 'none',
@@ -344,8 +421,8 @@
     thumbnailHeight: '180', 
     thumbnailWidth: '220',
     //thumbnailAlignment: 'fitWidth',
-    thumbnailGutterWidth: 0, 
-    thumbnailGutterHeight: 0,
+    thumbnailGutterWidth: 10, 
+    thumbnailGutterHeight: 10,
     thumbnailBorderHorizontal: 0, 
     thumbnailBorderVertical: 0,
     thumbnailLabel: { display: false },
@@ -371,7 +448,9 @@
 
     // GALLERY THEME
     galleryTheme : { 
-      thumbnail: { background: '#111' },
+      thumbnail: {
+        background: '#111'
+      },
     },
 
     // DEEP LINKING
