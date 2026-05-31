@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+
 :root {
   --timeline-left: 120px; /* Distance from left for the line */
 }
@@ -7,33 +11,78 @@ body {
   color: #ffecd6;
 }
 
+/* Prevent background scrolling when mobile menu is active */
+body.no-scroll {
+  overflow: hidden;
+}
+
 hr {
   color: #4e204c;
   border: 1px solid #4e204c;
 }
 
-#gallery{
-  margin: 20px;
-  margin-bottom: unset;
+h1 {
+  text-align: center;
 }
 
-.heading {
-  font-family: "Forum", serif;
-  font-weight: bold;
-  font-size: 2.2rem;
+a {
+  color: #ffbd61;
 }
+
+a:visited {
+  color: #fca23c;
+}
+
+
+/* ==========================================================================
+   Global - Navigation
+   ========================================================================== */
 
 .navigation, h2, h3 {
   font-family: "Forum", serif;
 }
 
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative; /* FIX: Allows z-index to take effect */
+  z-index: 100;       /* Pushes nav above background content/grids */
+}
+
+.navigation-name {
+  flex: 1 0 50%;
+  z-index: 101;       /* Keeps logo above the mobile overlay */
+}
+
+.navigation-name a, .navigation-name a:visited {
+  text-decoration: none;
+  color: #50dce8;
+}
+
+.navigation-name a:hover {
+  color: #56DCC6;
+}
+
 .navigation-right {
+  display: flex; 
+  align-items: center;
+  justify-content: right;
+  flex: 1 0 50%;
+  column-gap: 20px;
   font-size: 20px;
 }
 
-h1 {
-  text-align: center;
+/* Hide hamburger button on desktop screens */
+.menu-toggle {
+  display: none;
 }
+
+/* ==========================================================================
+   Main Page - Before/After Image Slider
+   ========================================================================== */
 
 /* Container setup */
 .image-slider {
@@ -150,14 +199,51 @@ h1 {
   left: 15px;
 }
 
+
+/* ==========================================================================
+   Main Page - Gallery
+   ========================================================================== */
+
+#gallery {
+  margin: 20px;
+  margin-bottom: unset;
+}
+
 .gallery {
   margin-top: 3rem;
 }
 
-/* Makes sure that the image ips scaled in such a way so that the watermark is visible in the bottom right */
+.heading {
+  font-family: "Forum", serif;
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+
+/* Makes sure that the image is scaled in such a way so that the watermark is visible in the bottom right */
 .imgCurrent, .nGY2ViewerMediaPan {
   scale: 0.9;
 }
+
+/* Prevent page jiggle (Commented out in original build) */
+/* default / MD+ */
+/* #gallery {
+  min-height: 520px;
+}  */
+
+/* SM (>=576px && <768px) — same as default, kept for clarity */
+/* @media (min-width: 576px) and (max-width: 767.98px) {
+  #gallery { min-height: 720px; }
+} */
+
+/* XS (mobile) */
+/* @media (max-width: 500px) {
+  #gallery { min-height: 800px; }
+} */
+
+
+/* ==========================================================================
+   Main Page - Video Projects Timeline
+   ========================================================================== */
 
 #video-projects {
   padding: 40px;
@@ -176,7 +262,7 @@ h1 {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: var(--timeline-left); /* Fixed variable name */
+  left: var(--timeline-left);
   width: 2px;
   background: #3b1139;
   z-index: 1;
@@ -198,13 +284,15 @@ h1 {
 
 .timeline-date {
   box-sizing: border-box; /* CRITICAL: Keeps width strict so it doesn't cross the line */
-  width: var(--timeline-left); /* Fixed variable name */
+  width: var(--timeline-left);
   padding-right: 35px; 
   text-align: right;
   font-weight: bold;
   font-size: 1.2rem;
   color: #ffecd6cc;
   position: relative;
+  font-family: 'Forum';
+  transform: translateX(20px); /* left of dot → slide left */
 }
 
 /* The Horizontal Connecting Line */
@@ -214,17 +302,16 @@ h1 {
   right: 12px; /* This is the end point near the dot */
   top: 50%;
   transform: translateY(-50%);
-  width: 18px; /* I slightly increased the width to make the fade more noticeable */
+  width: 18px; /* Slightly increased the width to make the fade more noticeable */
   height: 2px;
-  
-  /* The Magic: Fades from 50% white to 0% white (transparent) */
+  /* Fades from 50% white to 0% white (transparent) */
   background: linear-gradient(to right, rgba(255, 255, 255, 0.5), transparent);
 }
 
 /* Your Glass Dot */
 .marker-circle {
   position: absolute;
-  left: var(--timeline-left); /* Fixed variable name */
+  left: var(--timeline-left);
   transform: translateX(-50%); 
   width: 24px;
   height: 24px;
@@ -240,8 +327,8 @@ h1 {
   margin: 0;
   padding-left: 25px; /* Pushes the title to the right of the dot */
   font-size: 1.5rem;
-  /* text-transform: uppercase; */
   letter-spacing: 1px;
+  transform: translateX(-20px); /* right of dot → slide right */
 }
 
 /* --- CONTENT STYLES --- */
@@ -250,12 +337,13 @@ h1 {
   gap: 30px;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding-left: calc(var(--timeline-left) + 25px); /* Fixed variable name */
+  padding-left: calc(var(--timeline-left) + 25px);
 }
 
 .video-box {
   flex: 0 0 50%;
   min-width: 300px;
+  transform: translateX(-30px); /* right of line → slide right */
 }
 
 .video-box iframe {
@@ -270,10 +358,11 @@ h1 {
   flex: 1;
   font-size: 1.05rem;
   line-height: 1.6;
-  background: #211735; /* Your requested color! */
+  background: #211735;
   padding: 20px 25px;
   border-radius: 8px;
   border-left: 3px solid rgba(255, 255, 255, 0.3);
+  transform: translateX(-60px); /* further right → slide right with stagger */
 }
 
 /* All elements start hidden */
@@ -286,74 +375,29 @@ h1 {
   transition: transform 0.6s ease-in-out, opacity 0.6s ease-out;
 }
 
-.timeline-date {
-  font-family: 'Forum';
-}
-
-/* Horizontal offsets for fade-in direction */
-.timeline-date {
-  transform: translateX(20px); /* left of dot → slide left */
-}
-
-.project-title {
-  transform: translateX(-20px); /* right of dot → slide right */
-}
-
-.video-box {
-  transform: translateX(-30px); /* right of line → slide right */
-}
-
-.description-box {
-  transform: translateX(-60px); /* further right → slide right with stagger */
-}
-
-/* In-view state */
-.in-view-date { opacity: 1; transform: translateX(0); }
+/* In-view states triggered by Scroll/IntersectionObserver */
+.in-view-date  { opacity: 1; transform: translateX(0); }
 .in-view-title { opacity: 1; transform: translateX(0); }
 .in-view-video { opacity: 1; transform: translateX(0); }
-.in-view-desc { opacity: 1; transform: translateX(0); }
+.in-view-desc  { opacity: 1; transform: translateX(0); }
 
-a {
-  color: #ffbd61;
-}
-a:visited {
-  color: #fca23c;
-}
 
-.navigation {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.navigation-name {
-  flex: 1 0 50%;
-}
-
-.navigation-right {
-  display: flex; 
-  align-items: center;
-  justify-content: right;
-  flex: 1 0 50%;
-  column-gap: 20px;
-}
-
-.navigation-name a, .navigation-name a:visited {
-  text-decoration: none;
-  color: #50dce8;
-}
-
-.navigation-name a:hover {
-  color: #56DCC6;
-}
+/* ==========================================================================
+   Events Page - Grid and Cards Layout
+   ========================================================================== */
 
 .event-title {
   text-align: center;
 }
 
-/* Events page */
+.events-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: left;
+}
+
 .events-card-vertical {
   background-color: #2b105066;
   border-radius: 8px;
@@ -395,24 +439,11 @@ a:visited {
   line-height: 1.5;
 }
 
-.events-cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 20px;
-  row-gap: 20px;
-  justify-content: left;
-}
 
-@media screen and (max-width: 1000px) {
-  .events-cards-container {
-    justify-content: space-around;
-  }
-  /* .events-date {
-    text-align: center;
-  } */
-}
+/* ==========================================================================
+   Performances Subpage (2026_05_15) - Video Grid & Tag Pillars
+   ========================================================================== */
 
-/* thing thing thing on \2026_05_15 */
 /* Container for the whole video section */
 .performances-grid {
   display: grid;
@@ -494,36 +525,18 @@ a:visited {
 .icon-mic { background-image: url('../images/icons/mic-vocal.svg'); }
 .icon-guitar { background-image: url('../images/icons/guitar.svg'); }
 .icon-drum { background-image: url('../images/icons/drum.svg'); }
-.icon-piano { background-image: url('../images/icons/piano.svg') }
+.icon-piano { background-image: url('../images/icons/piano.svg'); }
 
-@media screen and (max-width: 540px) {
-  .navigation-name {
-    font-size: 25px;
-    flex: 1 0 60%;
+
+/* ==========================================================================
+   Responsive Media Queries
+   ========================================================================== */
+
+/* Tablet Viewports (Up to 1000px wide) */
+@media screen and (max-width: 1000px) {
+  .events-cards-container {
+    justify-content: space-around;
   }
-  .navigation-right {
-    font-size: 16px;
-    flex: 1 0 40%;
-  }
-}
-
-/* prevent page jiggle */
-/* default / MD+ */
-/* #gallery {
-  min-height: 520px;
-}  */
-
-/* SM (>=576px && <768px) — same as default, kept for clarity */
-/* @media (min-width: 576px) and (max-width: 767.98px) {
-  #gallery { min-height: 720px; }
-} */
-
-/* XS (mobile) */
-/* @media (max-width: 500px) {
-  #gallery { min-height: 800px; }
-} */
-
-@media screen and (max-width: 1000px){
   .image-slider {
     width: 70vw;
   }
@@ -532,69 +545,54 @@ a:visited {
   }
 }
 
-@media screen and (max-width: 800px){
-  .image-slider {
-    width: 80vw;
-  }
-  .navigation {
-    padding: 0;
-  }
-}
-
-/* Mobile Adaptation for Video Timeline */
+/* Mobile Timeline Adjustments (Up to 990px wide) */
 @media screen and (max-width: 990px) {
   :root {
-    /* Move the line closer to the left edge to save space */
-    --timeline-left: 10px; 
+    --timeline-left: 10px; /* Move line closer to left edge */
   }
 
-  #video-projects{
+  #video-projects {
     padding: 20px;
     padding-top: 0px;
   }
 
   .timeline-line {
-    /* Keeps the line visible but tucked away */
     left: var(--timeline-left);
   }
 
   .item-header {
-    /* Stack Date and Title vertically */
-    flex-direction: column;
+    flex-direction: column; /* Stack Date and Title vertically */
     align-items: flex-start;
     padding-left: calc(var(--timeline-left) + 25px);
     margin-bottom: 15px;
   }
 
   .timeline-date {
-    width: auto; /* Allow it to take only needed space */
+    width: auto;
     text-align: left;
     padding-right: 0;
-    font-size: 0.9rem; /* Slightly smaller */
-    color: rgba(255, 255, 255, 0.5); /* Less intrusive dimmed color */
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 4px;
   }
 
   .timeline-date::after {
-    /* Hide the horizontal connecting line on mobile */
-    display: none;
+    display: none; /* Hide horizontal connecting line on mobile */
   }
 
   .marker-circle {
-    /* Keeps the dot aligned with the new line position */
     left: var(--timeline-left);
-    top: 10px; /* Adjust based on your title height */
+    top: 10px;
     transform: translateX(-50%);
   }
 
   .project-title {
-    padding-left: 0; /* Reset padding since header now has it */
+    padding-left: 0;
     font-size: 1.25rem;
   }
 
   .item-content {
-    /* Stack Video and Description */
-    flex-direction: column;
+    flex-direction: column; /* Stack Video and Description */
     padding-left: calc(var(--timeline-left) + 25px);
     gap: 20px;
   }
@@ -602,7 +600,7 @@ a:visited {
   .video-box {
     flex: 1 1 100%;
     width: 100%;
-    min-width: unset; /* Allow it to shrink to mobile width */
+    min-width: unset;
   }
 
   .description-box {
@@ -610,5 +608,93 @@ a:visited {
     box-sizing: border-box;
     font-size: 0.95rem;
     padding: 15px;
+  }
+}
+
+/* Intermediate Mobile/Tablet Transitions (Up to 800px wide) */
+@media screen and (max-width: 800px) {
+  .image-slider {
+    width: 80vw;
+  }
+}
+
+/* Full-Screen Overlay Mobile Navigation (Up to 600px wide) */
+@media screen and (max-width: 600px) {
+  .navigation-name {
+    flex: 1;
+  }
+
+  /* Hamburger Button Styling */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+  }
+
+  .hamburger-bar {
+    width: 100%;
+    height: 3px;
+    background-color: #ffecd6;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Animate hamburger to 'X' when open */
+  .navigation.is-open .hamburger-bar:nth-child(1) {
+    transform: translateY(9px) translateX(-4px) rotate(45deg);
+    background-color: #50dce8;
+    width: 125%;
+  }
+  .navigation.is-open .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    width: 0%;
+  }
+  .navigation.is-open .hamburger-bar:nth-child(3) {
+    transform: translateY(-9px) translateX(-4px) rotate(-45deg);
+    background-color: #50dce8;
+    width: 125%;
+  }
+
+  /* Turn links container into full-screen overlay */
+  .navigation-right {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #12121a;
+    background-image: linear-gradient(180deg, #12121a 0%, #1c0b3a 100%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    row-gap: 30px;
+    
+    /* Animation & Accessibility state */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* Active State for Mobile Overlay */
+  .navigation.is-open .navigation-right {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+/* Small Smartphone Optimization (Up to 540px wide) */
+@media screen and (max-width: 540px) {
+  .navigation-name {
+    font-size: 28px;
   }
 }

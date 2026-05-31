@@ -23,21 +23,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="navigation">
+  <nav class="navigation">
     <h1 class="navigation-name">
       <a href="/">Борислав Дочев</a>
     </h1>
-    <div class="navigation-right">
+    
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation-links" aria-label="Превключване на менюто">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <div class="navigation-right" id="navigation-links">
       <div class="navigation-events">
         <a href="/events">Събития</a>
       </div>
+      <div class="navigation-people">
+        <a href="/people">Хора</a>
+      </div>
       <div class="navigation-about">
-        <a href="/about">За мен</a>
+        <a href="/about/">За мен</a>
       </div>
     </div>
-  </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navigation');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!nav || !toggle) return;
+      toggle.addEventListener('click', () => {
+        const isOpening = !nav.classList.contains('is-open');
+        if (isOpening) {
+          nav.classList.add('is-open');
+          document.body.classList.add('no-scroll');
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('is-open');
+          document.body.classList.remove('no-scroll');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
   <p>Тази страница все още се изгражда и ще изглежда по-добре!</p>
-  
+  <a href="/people/nikola-nikolov/">Никола Николов</a>
+  <a href="/people/asen-kirov/">Асен Киров</a>
 </body>
 </html>
 
