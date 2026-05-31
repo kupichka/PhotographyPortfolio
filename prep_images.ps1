@@ -25,7 +25,8 @@ $highQualityList = @(
     "hjIMG_0930.jpg",
     "hjIMG_1022.jpg",
     "hjIMG_1065.jpg",
-	"nikola-nikolov.png"
+	"people-nikola-nikolov.png",
+    "people-asen-kirov.jpg"
 )
 
 # Standard vs High Quality Thumbnail Settings
