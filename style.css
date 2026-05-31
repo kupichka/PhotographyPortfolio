@@ -416,13 +416,22 @@ a:visited {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: all 0.2s ease-in-out;
+}
+
+.events-card-vertical .events-image {
+  overflow: hidden; 
+  width: 100%;
+  height: 220px;
 }
 
 .events-card-vertical .events-image img {
   width: 100%;
-  height: 220px;
+  height: 100%; /* Changed to 100% since the parent wrapper now handles the height */
   object-fit: cover;
   display: block;
+  /* Smoothly animates the zoom effect over 0.2 seconds to match your card transition */
+  transition: transform 0.2s ease-in-out; 
 }
 
 .events-card-vertical .events-body {
@@ -448,6 +457,14 @@ a:visited {
   font-family: sans-serif;
   font-size: 15px;
   line-height: 1.5;
+}
+
+.events-card-vertical:hover {
+  transform: translateY(-2px);
+  background-color: #3a166c8d;
+}
+.events-card-vertical:hover .events-image img {
+  transform: scale(1.05);
 }
 
 
