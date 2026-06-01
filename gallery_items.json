@@ -95,11 +95,6 @@
     "title": "IMG_0846"
   },
   {
-    "src": "../../images/full/hjIMG_0849.webp",
-    "srct": "../../images/thumb/hjIMG_0849.webp",
-    "title": "IMG_0849"
-  },
-  {
     "src": "../../images/full/hjIMG_0852.webp",
     "srct": "../../images/thumb/hjIMG_0852.webp",
     "title": "IMG_0852"
@@ -150,11 +145,6 @@
     "title": "IMG_0912"
   },
   {
-    "src": "../../images/full/hjIMG_0916.webp",
-    "srct": "../../images/thumb/hjIMG_0916.webp",
-    "title": "IMG_0916"
-  },
-  {
     "src": "../../images/full/hjIMG_0930.webp",
     "srct": "../../images/thumb/hjIMG_0930.webp",
     "title": "IMG_0930"
@@ -200,11 +190,6 @@
     "title": "IMG_1076"
   },
   {
-    "src": "../../images/full/hjIMG_1081.webp",
-    "srct": "../../images/thumb/hjIMG_1081.webp",
-    "title": "IMG_1081"
-  },
-  {
     "src": "../../images/full/hjIMG_1087.webp",
     "srct": "../../images/thumb/hjIMG_1087.webp",
     "title": "IMG_1087"
@@ -233,11 +218,6 @@
     "src": "../../images/full/hjIMG_1115.webp",
     "srct": "../../images/thumb/hjIMG_1115.webp",
     "title": "IMG_1115"
-  },
-  {
-    "src": "../../images/full/hjIMG_1133_01.webp",
-    "srct": "../../images/thumb/hjIMG_1133_01.webp",
-    "title": "IMG_1133_01"
   },
   {
     "src": "../../images/full/hjIMG_1139.webp",
@@ -273,6 +253,11 @@
     "src": "images/full/IMG_1127.webp",
     "srct": "images/thumb/IMG_1127.webp",
     "title": "IMG_1127"
+  },
+  {
+    "src": "images/full/IMG_1167_01.webp",
+    "srct": "images/thumb/IMG_1167_01.webp",
+    "title": "IMG_1167_01"
   },
   {
     "src": "images/full/IMG_1831.webp",
@@ -313,6 +298,11 @@
     "src": "images/full/IMG_6585.webp",
     "srct": "images/thumb/IMG_6585.webp",
     "title": "IMG_6585"
+  },
+  {
+    "src": "images/full/IMG_6981.webp",
+    "srct": "images/thumb/IMG_6981.webp",
+    "title": "IMG_6981"
   },
   {
     "src": "images/full/IMG_6982.webp",
@@ -423,5 +413,70 @@
     "src": "images/full/P1025004.webp",
     "srct": "images/thumb/P1025004.webp",
     "title": "P1025004"
+  },
+  {
+    "src": "images/full/people-asen-kirov.webp",
+    "srct": "images/thumb/people-asen-kirov.webp",
+    "title": "people-asen-kirov"
+  },
+  {
+    "src": "images/full/people-nikola-nikolov.webp",
+    "srct": "images/thumb/people-nikola-nikolov.webp",
+    "title": "people-nikola-nikolov"
+  },
+  {
+    "src": "../../images/full/snIMG_1267.webp",
+    "srct": "../../images/thumb/snIMG_1267.webp",
+    "title": "snIMG_1267"
+  },
+  {
+    "src": "../../images/full/snIMG_1269.webp",
+    "srct": "../../images/thumb/snIMG_1269.webp",
+    "title": "snIMG_1269"
+  },
+  {
+    "src": "../../images/full/snIMG_1277.webp",
+    "srct": "../../images/thumb/snIMG_1277.webp",
+    "title": "snIMG_1277"
+  },
+  {
+    "src": "../../images/full/snIMG_1281.webp",
+    "srct": "../../images/thumb/snIMG_1281.webp",
+    "title": "snIMG_1281"
+  },
+  {
+    "src": "../../images/full/snIMG_1285.webp",
+    "srct": "../../images/thumb/snIMG_1285.webp",
+    "title": "snIMG_1285"
+  },
+  {
+    "src": "../../images/full/snIMG_1295.webp",
+    "srct": "../../images/thumb/snIMG_1295.webp",
+    "title": "snIMG_1295"
+  },
+  {
+    "src": "../../images/full/snIMG_1305.webp",
+    "srct": "../../images/thumb/snIMG_1305.webp",
+    "title": "snIMG_1305"
+  },
+  {
+    "src": "../../images/full/snIMG_1307_02.webp",
+    "srct": "../../images/thumb/snIMG_1307_02.webp",
+    "title": "snIMG_1307_02"
+  },
+  {
+    "src": "../../images/full/snIMG_1310.webp",
+    "srct": "../../images/thumb/snIMG_1310.webp",
+    "title": "snIMG_1310"
+  },
+  {
+    "src": "../../images/full/snIMG_1319.webp",
+    "srct": "../../images/thumb/snIMG_1319.webp",
+    "title": "snIMG_1319"
+  },
+  {
+    "src": "../../images/full/snIMG_1324.webp",
+    "srct": "../../images/thumb/snIMG_1324.webp",
+    "title": "snIMG_1324"
   }
 ]
