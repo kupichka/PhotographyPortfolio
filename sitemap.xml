@@ -9,33 +9,43 @@
 
 <url>
   <loc>https://photos.kupichka.org/</loc>
-  <lastmod>2026-05-30T22:01:09+00:00</lastmod>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://photos.kupichka.org/events/</loc>
-  <lastmod>2026-05-30T22:01:09+00:00</lastmod>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://photos.kupichka.org/people/</loc>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://photos.kupichka.org/about/</loc>
-  <lastmod>2026-05-30T22:01:09+00:00</lastmod>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://photos.kupichka.org/events/2026_05_29/</loc>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://photos.kupichka.org/events/2026_05_15/</loc>
-  <lastmod>2026-05-30T22:01:09+00:00</lastmod>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://photos.kupichka.org/people/nikola-nikolov/</loc>
-  <lastmod>2026-05-30T22:01:09+00:00</lastmod>
-  <priority>0.51</priority>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://photos.kupichka.org/people/</loc>
-  <lastmod>2026-05-30T22:01:09+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://photos.kupichka.org/people/asen-kirov/</loc>
+  <lastmod>2026-06-01T19:59:19+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
