@@ -615,6 +615,10 @@ a:visited {
   transition: all 0.2s ease-in-out;
 }
 
+a.btn-home:visited {
+  color: #12121a;
+}
+
 .btn-home:hover {
   background-color: #50dce8;
 }
