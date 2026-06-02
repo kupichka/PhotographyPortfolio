@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Неоткрита страница (404) | Борислав Дочев</title>
+  <meta name="description" content="Търсената страница не е открита (404). Сайтът все още се изгражда!">
+  
+  <meta property="og:title" content="Неоткрита страница (404) | Борислав Дочев">
+  <meta property="og:description" content="Търсената страница не е открита (404). Сайтът все още се изгражда!">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/101_4477.webp">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="300">
+  <meta property="og:image:alt" content="Синеоко момче в студени цветове">
+  <meta property="og:url" content="https://photos.kupichka.org/about">
+  <meta property="og:type" content="website">
+  
+  <link rel="preload" href="/fonts/forum-custom.woff2" as font type="font/woff2" crossorigin>
+  <link href="./style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+<body>
+  <nav class="navigation">
+    <h1 class="navigation-name">
+      <a href="/">Борислав Дочев</a>
+    </h1>
+    
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation-links" aria-label="Превключване на менюто">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+
+    <div class="navigation-right" id="navigation-links">
+      <div class="navigation-events">
+        <a href="/events">Събития</a>
+      </div>
+      <div class="navigation-people">
+        <a href="/people">Хора</a>
+      </div>
+      <div class="navigation-about">
+        <a href="/about/">За мен</a>
+      </div>
+    </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navigation');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!nav || !toggle) return;
+      toggle.addEventListener('click', () => {
+        const isOpening = !nav.classList.contains('is-open');
+        if (isOpening) {
+          nav.classList.add('is-open');
+          document.body.classList.add('no-scroll');
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('is-open');
+          document.body.classList.remove('no-scroll');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+
+  <main class="error-container">
+    <h2 class="error-code">404</h2>
+    <p class="error-message">Търсената страница не беше намерена. Някой да не я е взел?</p>
+    
+    <div class="error-image">
+      <img src="./images/404.webp" alt="Изгубена страница">
+    </div>
+
+    <a href="/" class="btn-home">Към началото</a>
+  </main>
+</body>
+</html>
+
