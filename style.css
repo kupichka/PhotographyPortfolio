@@ -81,7 +81,8 @@ a:visited {
   /* color: #56DCC6; */
 }
 
-#navigation-links, #navigation-links a:visited {
+#navigation-links a,
+#navigation-links a:visited {
   color: #50dce8;
 }
 
