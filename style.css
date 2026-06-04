@@ -518,6 +518,68 @@ a:visited {
 h2.events-date {
   text-align: center;
 }
+/* ==========================================================================
+  People Page - Cards Layout
+  ========================================================================== */
+
+  .people-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: left;
+  padding: 20px; /* Adjust based on your overall layout */
+}
+
+.person-card {
+  position: relative; /* Crucial for absolute positioning the text inside */
+  display: block;
+  width: 100%;
+  max-width: 280px; /* Slightly narrower than event cards to emphasize portrait feel */
+  aspect-ratio: 3 / 4; /* Forces uniform shape for ALL images */
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.person-card .person-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops both landscape and portrait to fill the box */
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effects */
+.person-card:hover {
+  transform: translateY(-4px);
+}
+
+.person-card:hover .person-image {
+  transform: scale(1.05); /* Subtle zoom on the photo, similar to your events */
+}
+
+/* The text overlay */
+.person-card .person-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 20px 20px; /* Larger top padding to stretch the gradient fade upward */
+  
+  /* A fade effect using your theme's deep purple to make white text pop */
+  background: linear-gradient(to top, #12121a 0%, rgba(43, 16, 80, 0) 100%);
+}
+
+.person-card .person-name {
+  font-family: 'Forum', serif;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 0;
+  color: #ffecd6;
+}
 
 /* ==========================================================================
    Performances Subpage (2026_05_15) - Video Grid & Tag Pillars
