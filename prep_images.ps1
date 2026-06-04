@@ -25,16 +25,16 @@ $highQualityList = @(
     "hjIMG_0930.jpg",
     "hjIMG_1022.jpg",
     "hjIMG_1065.jpg",
-	"people-nikola-nikolov.png",
+    "people-nikola-nikolov.png", # Keeping these for safety, though they'll be auto-caught now
     "people-asen-kirov.jpg",
-	"emIMG_0027.jpg",
-	"czP1021835.jpg",
-	"epP1001586.jpg",
-	"nqP1001556.JPG",
-	"spIMG_8879.JPG",
-	"qgIMG_8096.JPG",
-	"usIMG_6724.JPG",
-	"rqIMG_0490.JPG"
+    "emIMG_0027.jpg",
+    "czP1021835.jpg",
+    "epP1001586.jpg",
+    "nqP1001556.JPG",
+    "spIMG_8879.JPG",
+    "qgIMG_8096.JPG",
+    "usIMG_6724.JPG",
+    "rqIMG_0490.JPG"
 )
 
 # Standard vs High Quality Thumbnail Settings
@@ -49,7 +49,7 @@ $hqThumbQuality  = 98     # Maximum visual fidelity, minimal compression
 mkdir "$dest\thumb" -Force | Out-Null
 mkdir "$dest\full"  -Force | Out-Null
 
-# Get all .jpg and .heic files from the source directory
+# Get all .jpg, .heic, and .png files from the source directory
 $files = Get-ChildItem -Path $src -File | Where-Object { $_.Extension -in '.jpg', '.heic', '.png' }
 
 foreach ($file in $files) {
@@ -61,8 +61,8 @@ foreach ($file in $files) {
 
     # --- 1. Process Thumbnail ---
     if (-not (Test-Path $thumbPath)) {
-        # Check if this file is designated for High Quality
-        if ($file.Name -in $highQualityList) {
+        # Check if file is explicitly listed OR its name starts with "people-"
+        if (($file.Name -in $highQualityList) -or ($file.Name -like "people-*")) {
             Write-Host "Generating HIGH QUALITY thumbnail for: $($file.Name)" -ForegroundColor Magenta
             magick "$($file.FullName)" -auto-orient -resize $hqThumbResize -quality $hqThumbQuality $thumbPath
         } else {

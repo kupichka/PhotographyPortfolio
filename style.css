@@ -59,6 +59,7 @@ a:visited {
   flex-wrap: nowrap;
   padding-left: 20px;
   padding-right: 20px;
+  margin-bottom: 8px;
   position: relative; /* FIX: Allows z-index to take effect */
   z-index: 100;       /* Pushes nav above background content/grids */
 }
@@ -526,12 +527,12 @@ h2.events-date {
   People Page - Cards Layout
   ========================================================================== */
 
-  .people-cards-container {
+.people-cards-container {
   display: flex;
   flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 20px;
-  justify-content: left;
+  justify-content: space-evenly;
   padding: 20px; /* Adjust based on your overall layout */
 }
 
