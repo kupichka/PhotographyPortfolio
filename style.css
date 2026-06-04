@@ -139,6 +139,10 @@ a:visited {
    Main Page - Before/After Image Slider
    ========================================================================== */
 
+#gallery-main-page {
+  min-height: 500px;
+}
+
 /* Container setup */
 .image-slider {
   position: relative;
