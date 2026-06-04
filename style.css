@@ -66,14 +66,25 @@ a:visited {
 .navigation-name {
   flex: 1 0 50%;
   z-index: 101;       /* Keeps logo above the mobile overlay */
+  letter-spacing: 2px;
 }
 
 .navigation-name a, .navigation-name a:visited {
   text-decoration: none;
-  color: #50dce8;
+  color: #ffbd61;
+  /* color: #50dce8; */
 }
 
 .navigation-name a:hover {
+  color: #fca23c;
+  /* color: #56DCC6; */
+}
+
+#navigation-links, #navigation-links a:visited {
+  color: #50dce8;
+}
+
+#navigation-links a:hover {
   color: #56DCC6;
 }
 
@@ -89,6 +100,39 @@ a:visited {
 /* Hide hamburger button on desktop screens */
 .menu-toggle {
   display: none;
+}
+
+/* Asyas request for some reason */
+/* Ensure the main link acts as a block-like container for its children */
+.navigation-name a {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Create the thin line separator and the English name underneath */
+.navigation-name a::after {
+  /* \A0 is a non-breaking space used to inject content; then we supply the text */
+  content: "Borislav Dochev";
+  
+  /* Typography rules requested by your teacher */
+  font-style: italic;
+  font-size: 0.65em; /* Scales down smoothly relative to the main font size */
+  font-weight: normal;
+  letter-spacing: 5px;
+  margin-top: 6px;
+  padding-top: 6px;
+  
+  /* Inherit colors or blend them nicely */
+  color: inherit; 
+  opacity: 0.85; /* Softens the English text slightly so it doesn't fight the main title */
+  
+  /* The Line Separator: Formatted as a top border on this pseudo-element */
+  border-top: 1px solid rgba(255, 189, 97, 0.4); /* Uses a semi-transparent version of your gold #ffbd61 */
+  
+  /* Alignment rules */
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* ==========================================================================
@@ -337,6 +381,7 @@ a:visited {
 .project-title {
   margin: 0;
   padding-left: 25px; /* Pushes the title to the right of the dot */
+  color: #50dce8;
   font-size: 1.5rem;
   letter-spacing: 1px;
   transform: translateX(-20px); /* right of dot → slide right */
@@ -372,7 +417,7 @@ a:visited {
   background: #211735;
   padding: 20px 25px;
   border-radius: 8px;
-  border-left: 3px solid rgba(255, 255, 255, 0.3);
+  /* border-left: 3px solid rgba(255, 255, 255, 0.3); */
   transform: translateX(-60px); /* further right → slide right with stagger */
 }
 
@@ -406,7 +451,7 @@ a:visited {
   flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 20px;
-  justify-content: left;
+  justify-content: center;
 }
 
 .events-card-vertical {
@@ -445,6 +490,10 @@ a:visited {
   margin-bottom: 5px;
 }
 
+.events-card-vertical .events-title a {
+  text-decoration: none;
+}
+
 .events-card-vertical .events-date {
   font-family: 'Forum', serif;
   font-size: 14px;
@@ -466,6 +515,9 @@ a:visited {
   transform: scale(1.05);
 }
 
+h2.events-date {
+  text-align: center;
+}
 
 /* ==========================================================================
    Performances Subpage (2026_05_15) - Video Grid & Tag Pillars
