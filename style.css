@@ -119,9 +119,9 @@ a:visited {
   
   /* Typography rules requested by your teacher */
   font-style: italic;
-  font-size: 0.75em; /* Scales down smoothly relative to the main font size */
-  font-weight: normal;
-  letter-spacing: 5px;
+  font-size: 23px; /* Scales down smoothly relative to the main font size */
+  font-weight: bold;
+  letter-spacing: 4px;
   margin-top: 6px;
   padding-top: 6px;
   
@@ -130,7 +130,7 @@ a:visited {
   opacity: 0.85; /* Softens the English text slightly so it doesn't fight the main title */
   
   /* The Line Separator: Formatted as a top border on this pseudo-element */
-  border-top: 1px solid rgba(255, 189, 97, 0.4); /* Uses a semi-transparent version of your gold #ffbd61 */
+  border-top: 2px solid rgba(255, 189, 97, 0.4); /* Uses a semi-transparent version of your gold #ffbd61 */
   
   /* Alignment rules */
   text-align: center;
