@@ -76,8 +76,15 @@
       <img src="/images/404.webp" alt="Мъж в гръб, носещ лост за фитнес зад главата си">
     </div>
 
-    <a href="/" class="btn-home">Към началото</a>
+    <a href="/" class="btn-back" onclick="goBack(event)">Назад</a>
   </main>
+  <script>
+    function goBack(event){
+      if(window.history.length > 1 && document.referrer !== ""){
+        window.history.back();
+      }
+    }
+  </script>
 </body>
 </html>
 

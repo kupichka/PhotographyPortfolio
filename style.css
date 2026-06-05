@@ -585,6 +585,8 @@ h2.events-date {
   line-height: 1.2;
   margin: 0;
   color: #ffecd6;
+  text-shadow: 1px 1px 3px #12121a,
+               2px 2px 4px #12121a;
 }
 
 /* ==========================================================================
@@ -723,7 +725,7 @@ h2.events-date {
   transform: scale(1.05);
 }
 
-.btn-home {
+.btn-back {
   font-family: 'Forum', serif;
   font-size: 1.1rem;
   color: #12121a;
@@ -735,12 +737,67 @@ h2.events-date {
   transition: all 0.2s ease-in-out;
 }
 
-a.btn-home:visited {
+a.btn-back:visited {
   color: #12121a;
 }
 
-.btn-home:hover {
+.btn-back:hover {
   background-color: #50dce8;
+}
+
+/* ==========================================================================
+   Person Profile Page
+   ========================================================================== */
+
+.person-page-title {
+  /* Inherits 'Forum' font-family from your global h1/h2/h3 rules */
+  font-size: 3.5rem; /* Increased size for the person's name */
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #ffecd6;
+}
+
+.person-description-container {
+  max-width: 800px;
+  margin: 20px auto 40px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.person-description-text {
+  font-family: sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffecd6b5;
+}
+
+/* Aligns the role icons nicely with the description text */
+.person-description-text .icon {
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  margin-right: 0;
+}
+
+.person-divider {
+  margin-top: 3.4rem;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.person-performances-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+.person-section-title {
+  font-family: 'Forum', serif;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 /* ==========================================================================
