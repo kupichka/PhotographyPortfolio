@@ -165,7 +165,7 @@ a:visited {
 }
 
 /* Position the "Before" image directly over the "After" image */
-.image-before {
+.image-after {
   position: absolute;
   top: 0;
   left: 0;
@@ -573,8 +573,6 @@ h2.events-date {
   left: 0;
   right: 0;
   padding: 40px 20px 20px; /* Larger top padding to stretch the gradient fade upward */
-  
-  /* A fade effect using your theme's deep purple to make white text pop */
   background: linear-gradient(to top, #12121a 0%, rgba(43, 16, 80, 0) 100%);
 }
 
@@ -589,23 +587,39 @@ h2.events-date {
                2px 2px 4px #12121a;
 }
 
+/* =================================
+    Individual performers styling
+   ================================= */
+.angelina-popova-gallery #gallery {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 /* ==========================================================================
    Performances Subpage (2026_05_15) - Video Grid & Tag Pillars
    ========================================================================== */
 
 /* Container for the whole video section */
 .performances-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 25px;
   margin-top: 20px;
 }
 
 /* Individual Video Card */
 .video-card {
+  flex: 1 1 480px; 
+  max-width: 500px;
+  min-width: 350px;
+  
   background-color: #2b105066;
   border-radius: 8px;
   overflow: hidden;
+  
+  /* This keeps the content aligned to the top */
   display: flex;
   flex-direction: column;
 }
@@ -626,11 +640,18 @@ h2.events-date {
 /* Info Section under the video */
 .video-info {
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Absorbs the extra space in the card */
+  
+  /* This ensures the TITLE stays at the top of this section */
+  justify-content: flex-start; 
 }
 
 .video-title {
   font-family: 'Forum', serif;
   font-size: 22px;
+  text-align: center;
   color: #ffecd6;
   margin: 0 0 10px 0;
 }
@@ -640,6 +661,9 @@ h2.events-date {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 }
 
 .tag {
@@ -647,7 +671,7 @@ h2.events-date {
   align-items: center;
   background-color: #1a0833; /* Darker contrast against the card */
   color: #ffbd61b5;
-  padding: 4px 12px;
+  padding: 4px 8px;
   border-radius: 20px; /* Gives the pill shape */
   font-family: sans-serif;
   font-size: 13px;
@@ -675,6 +699,34 @@ h2.events-date {
 .icon-guitar { background-image: url('../images/icons/guitar.svg'); }
 .icon-drum { background-image: url('../images/icons/drum.svg'); }
 .icon-piano { background-image: url('../images/icons/piano.svg'); }
+
+/* additional styling for when the song was played */
+/* Styling for the event link */
+.video-event-link {
+  font-family: sans-serif;
+  font-size: 13px;
+  text-align: center;
+  color: #ffecd680;
+  text-decoration: none;
+  margin-bottom: 12px;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.video-event-link:visited {
+  color: #ffecd680;
+}
+
+.video-event-link span {
+  color: #ffecd6b5;
+  border-bottom: 1px dotted #ffecd6b5;
+  transition: all 0.2s ease;
+}
+
+.video-event-link:hover span {
+  color: #ffbd61b5;
+  border-bottom-color: #ffbd61b5;
+}
 
 /* ==========================================================================
    404 Page Styling
