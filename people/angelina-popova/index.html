@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ангелина Попова | Борислав Дочев</title>
+  <meta name="description" content="Галерия и участия на Ангелина Попова.">
+  
+  <meta property="og:title" content="Ангелина Попова | Борислав Дочев">
+  <meta property="og:description" content="Галерия и участия на Ангелина Попова.">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people-angelina-popova-4.webp">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+  <meta property="og:url" content="https://photos.kupichka.org/people/angelina-popova">
+  <meta property="og:type" content="profile">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="preload" href="/fonts/forum-custom.woff2" as font type="font/woff2" crossorigin>
+  <link href="/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+
+  <link rel="canonical" href="https://photos.kupichka.org/people/angelina-popova/">
+</head>
+<body>
+  <nav class="navigation">
+    <h1 class="navigation-name">
+      <a href="/">Борислав Дочев</a>
+    </h1>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation-links" aria-label="Превключване на менюто">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+    <div class="navigation-right" id="navigation-links">
+      <div class="navigation-events">
+        <a href="/events">Събития</a>
+      </div>
+      <div class="navigation-people">
+        <a href="/people">Хора</a>
+      </div>
+      <div class="navigation-about">
+        <a href="/about/">За мен</a>
+      </div>
+    </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navigation');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!nav || !toggle) return;
+      toggle.addEventListener('click', () => {
+        const isOpening = !nav.classList.contains('is-open');
+        if (isOpening) {
+          nav.classList.add('is-open');
+          document.body.classList.add('no-scroll');
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('is-open');
+          document.body.classList.remove('no-scroll');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+
+  <div style="margin-top: 40px;"></div>
+  <h2 class="person-page-title">Ангелина Попова</h2>
+  
+  <div class="person-description-container">
+    <p class="person-description-text">
+      Ангелина Попова обикновено е вокален изпълнител и е участвала в изпълнения на песни като <em>„Élan“</em> на Nightwish.
+    </p>
+  </div>
+
+  <div role="main" id="gallery"></div>
+  
+  <hr class="person-divider">
+  
+  <div id="videos" class="person-performances-section">
+    <h3 class="person-section-title">Участия и Изпълнения</h3>
+    
+    <div class="performances-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe title="Тази песен не е за любов" src="https://www.youtube.com/embed/HdXprCBlpuw" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4 class="video-title">Тази песен не е за любов - Стефан Вълдобрев</h4>
+          <div class="performer-tags">
+            <a href="/people/eva-dimkin" class="tag"><span class="icon icon-piano"></span> Ева Димкин</a>
+            <a href="/people/kamen-argirov" class="tag"><span class="icon icon-guitar"></span> Камен Аргиров</a>
+            <a href="/people/beloslava-petkova" class="tag"><span class="icon icon-drum"></span> Белослава Петкова</a>
+            <a href="/people/angelina-popova" class="tag"><span class="icon icon-mic"></span> Ангелина Попова</a>
+            <a href="/people/velin-tsvetkov" class="tag"><span class="icon icon-guitar"></span> Велин Цветков</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe title="Тази песен не е за любов" src="https://www.youtube.com/embed/GYzO7vTN5AA" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <h4 class="video-title">Élan - Nightwish</h4>
+          <div class="performer-tags">
+            <a href="/people/angelina-popova" class="tag"><span class="icon icon-mic"></span> Ангелина Попова</a>
+            <a href="/people/kamen-yanev" class="tag"><span class="icon icon-guitar"></span> Камен Янев</a>
+            <a href="/people/velin-tsvetkov" class="tag"><span class="icon icon-guitar"></span> Велин Цветков</a>
+            <a href="/people/teodora-decheva" class="tag"><span class="icon icon-drum"></span> Теодора Дечева</a>
+            <a href="/people/adelina-docheva" class="tag"><span class="icon icon-piano"></span> Аделина Дочева</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  <script>
+  jQuery("#gallery").nanogallery2({
+    // CONTENT SOURCE
+    itemsBaseURL: "",
+    items: [
+      {
+        "src": "/images/full/people-angelina-popova-4.webp",
+        "srct": "/images/thumb/people-angelina-popova-4.webp",
+        "title": "Ангелина Попова"
+      },
+      {
+        "src": "/images/full/IMG_0140_02.webp",
+        "srct": "/images/thumb/IMG_0140_02.webp",
+        "title": "Ангелина Попова"
+      },
+      {
+        "src": "/images/full/IMG_9791.webp",
+        "srct": "/images/thumb/IMG_9791.webp",
+        "title": "Ангелина Попова"
+      },
+      {
+        "src": "/images/full/IMG_9472.webp",
+        "srct": "/images/thumb/IMG_9472.webp",
+        "title": "Ангелина Попова"
+      },
+      {
+        "src": "/images/full/IMG_9301.webp",
+        "srct": "/images/thumb/IMG_9301.webp",
+        "title": "Ангелина Попова"
+      },
+      {
+        "src": "/images/full/P1022105.webp",
+        "srct": "/images/thumb/P1022105.webp",
+        "title": "Ангелина Попова"
+      },
+      {
+        "src": "/images/full/P1022072.webp",
+        "srct": "/images/thumb/P1022072.webp",
+        "title": "Ангелина Попова"
+      },
+      // {
+      //   "src": "/images/full/P1021906.webp",
+      //   "srct": "/images/thumb/P1021906.webp",
+      //   "title": "Ангелина Попова"
+      // },
+    ],
+    // GALLERY LAYOUT
+    galleryDisplayMode: 'rows',
+    gallerySorting: 'none',
+    thumbnailDisplayOrder: 'none',
+
+    thumbnailHeight: '250', 
+    thumbnailWidth: 'auto',
+    thumbnailGutterWidth: 10, 
+    thumbnailGutterHeight: 10,
+    thumbnailBorderHorizontal: 0, 
+    thumbnailBorderVertical: 0,
+    thumbnailLabel: { display: false },
+
+    // DISPLAY ANIMATION
+    galleryDisplayTransitionDuration: 1500,
+    thumbnailDisplayTransition: 'imageSlideUp',
+    thumbnailDisplayTransitionDuration: 1200,
+    thumbnailDisplayTransitionEasing: 'easeInOutQuint',
+    thumbnailDisplayInterval: 60,
+
+    // THUMBNAIL HOVER ANIMATION
+    thumbnailBuildInit2: 'image_scale_1.15',
+    thumbnailHoverEffect2: 'thumbnail_scale_1.00_1.05_300|image_scale_1.15_1.00',
+    touchAnimation: true,
+    touchAutoOpenDelay: 500,
+
+    // LIGHTBOX
+    viewerTools: {
+      topLeft: 'label',
+      topRight: 'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
+    },
+
+    // GALLERY THEME
+    galleryTheme : { 
+      thumbnail: {
+        background: '#111'
+      },
+    },
+
+    // DEEP LINKING
+    locationHash: true
+  });
+  </script>
+</body>
+</html>
