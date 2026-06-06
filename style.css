@@ -594,6 +594,13 @@ h2.events-date {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  min-height: 360px;
+}
+
+@media screen and (max-width: 880px) {
+  .angelina-popova-gallery #gallery {
+    min-height: 300px;
+  }
 }
 
 /* ==========================================================================
