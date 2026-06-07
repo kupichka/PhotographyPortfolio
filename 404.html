@@ -10,11 +10,12 @@
   <meta property="og:title" content="Неоткрита страница (404) | Борислав Дочев">
   <meta property="og:description" content="Търсената страница не е открита (404). Сайтът все още се изгражда!">
   <meta property="og:image" content="https://photos.kupichka.org/images/404.webp">
-  <meta property="og:image:width" content="400">
-  <meta property="og:image:height" content="300">
-  <meta property="og:image:alt" content="Синеоко момче в студени цветове">
-  <meta property="og:url" content="https://photos.kupichka.org/about">
+  <meta property="og:image:width" content="1286">
+  <meta property="og:image:height" content="979">
+  <meta property="og:image:alt" content="Мъж в гръб, носещ лост за фитнес зад главата си">
   <meta property="og:type" content="website">
+
+  <meta name="robots" content="noindex, follow">
   
   <link rel="preload" href="/fonts/forum-custom.woff2" as font type="font/woff2" crossorigin>
   <link href="/style.css" rel="stylesheet">
@@ -81,6 +82,7 @@
   <script>
     function goBack(event){
       if(window.history.length > 1 && document.referrer !== ""){
+        event.preventDefault();
         window.history.back();
       }
     }

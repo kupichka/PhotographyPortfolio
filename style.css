@@ -566,6 +566,11 @@ h2.events-date {
   transform: scale(1.05); /* Subtle zoom on the photo, similar to your events */
 }
 
+.person-card:hover .person-name {
+  color: #50dce8;
+  transition: color 0.2s ease-in-out;
+}
+
 /* The text overlay */
 .person-card .person-info {
   position: absolute;
