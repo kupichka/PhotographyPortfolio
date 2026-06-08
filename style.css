@@ -602,6 +602,17 @@ h2.events-date {
   min-height: 360px;
 }
 
+.irina-mileva-gallery {
+  min-height: 430px;
+  margin: 0 auto;
+}
+
+.single-picture-gallery {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 @media screen and (max-width: 880px) {
   .angelina-popova-gallery #gallery {
     min-height: 300px;
