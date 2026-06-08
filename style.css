@@ -602,11 +602,6 @@ h2.events-date {
   min-height: 360px;
 }
 
-.irina-mileva-gallery {
-  min-height: 430px;
-  margin: 0 auto;
-}
-
 .single-picture-gallery {
   display: flex;
   justify-content: center;
@@ -835,7 +830,10 @@ a.btn-back:visited {
 
 .person-description-container {
   max-width: 800px;
-  margin: 20px auto 40px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
   padding: 0 20px;
 }
