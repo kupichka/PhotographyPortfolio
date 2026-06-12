@@ -27,13 +27,32 @@
       <div class="navigation-about"><a href="/about/">За мен</a></div>
     </div>
   </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navigation');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!nav || !toggle) return;
+      toggle.addEventListener('click', () => {
+        const isOpening = !nav.classList.contains('is-open');
+        if (isOpening) {
+          nav.classList.add('is-open');
+          document.body.classList.add('no-scroll');
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('is-open');
+          document.body.classList.remove('no-scroll');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
 
   <div style="margin-top: 40px;"></div>
   <h2 class="person-page-title">Мартин Аронов</h2>
 
   <div class="person-description-container" style="max-width: 860px;">
     <p class="person-description-text" style="margin-bottom: 5px;">
-      Мартин Аронов е вокалист и китарист от НПМГ.
+      Мартин Аронов е китарист от НПМГ.
     </p>
     <p class="person-description-text" style="margin-top: 0;">
       Страницата събира негови изпълнения на живо и участия от училищни концерти.
