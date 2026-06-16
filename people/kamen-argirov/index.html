@@ -49,6 +49,25 @@
       </div>
     </div>
   </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.querySelector('.navigation');
+      const toggle = document.querySelector('.menu-toggle');
+      if (!nav || !toggle) return;
+      toggle.addEventListener('click', () => {
+        const isOpening = !nav.classList.contains('is-open');
+        if (isOpening) {
+          nav.classList.add('is-open');
+          document.body.classList.add('no-scroll');
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          nav.classList.remove('is-open');
+          document.body.classList.remove('no-scroll');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
 
   <div style="margin-top: 40px;"></div>
   <h2 class="person-page-title">Камен Аргиров</h2>
