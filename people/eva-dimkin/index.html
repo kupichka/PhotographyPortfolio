@@ -9,9 +9,9 @@
   
   <meta property="og:title" content="Ева Димкин | Борислав Дочев">
   <meta property="og:description" content="Галерия и участия на Ева Димкин.">
-  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people/eva-dimkin/people-eva-dimkin.webp">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="800">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people/eva-dimkin/people-eva-dimkin-1200w.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1800">
   <meta property="og:image:alt" content="Ева Димкин">
   <meta property="og:url" content="https://photos.kupichka.org/people/eva-dimkin/">
   <meta property="og:type" content="profile">
@@ -81,7 +81,7 @@
     </p>
   </div>
 
-  <div class="single-picture-gallery" style="min-height: 370px;">
+  <div style="min-height: 220px;">
     <div role="main" id="gallery"></div>
   </div>
   
@@ -114,22 +114,49 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
   <script>
+  const rawItems = [
+    {
+      "src": "/images/full/people/eva-dimkin/IMG_1113.webp",
+      "srct": "/images/thumb/people/eva-dimkin/IMG_1113.webp",
+      "title": "Ева Димкин"
+    },
+    {
+      "src": "/images/full/events/2026_05_15/IMG_1141.webp",
+      "srct": "/images/thumb/events/2026_05_15/IMG_1141.webp",
+      "title": "Ева прегръща момче със синя тениска"
+    }
+  ];
+
+  const makeThumbSet = (base) => `
+    image-set(
+      url("${base}-400w.webp") 1x,
+      url("${base}-800w.webp") 2x,
+      url("${base}-1200w.webp") 3x
+    )
+  `;
+
+  const responsiveItems = rawItems.map(item => {
+    const thumbBase = item.srct.replace(/\.webp$/, '');
+    return {
+      ...item,
+      srct: `${thumbBase}-400w.webp`,
+      customData: {
+        thumbBase
+      }
+    };
+  });
+
   jQuery("#gallery").nanogallery2({
     itemsBaseURL: "",
-    items: [
-      {
-        "src": "/images/full/people/eva-dimkin/people-eva-dimkin.webp",
-        "srct": "/images/thumb/people/eva-dimkin/people-eva-dimkin.webp",
-        "title": "Ева Димкин"
-      }
-    ],
+    items: responsiveItems,
     galleryDisplayMode: 'rows',
     gallerySorting: 'none',
     thumbnailDisplayOrder: 'none',
 
-    thumbnailHeight: '370', 
-    thumbnailWidth: '400',
+    thumbnailWidth:  '560 XS300 SM380 ME460 LA560 XL640',
+    thumbnailHeight: '420 XS220 SM280 ME340 LA420 XL480',
     thumbnailAlignment: 'center',
+
     thumbnailGutterWidth: 10, 
     thumbnailGutterHeight: 10,
     thumbnailBorderHorizontal: 0, 
@@ -157,8 +184,26 @@
       },
     },
 
-    locationHash: true
+    // DEEP LINKING
+    locationHash: true,
+
+    // RESPONSIVE IMAGES
+    fnThumbnailInit: fnThumbnailInitFallback,
   });
+  
+  function fnThumbnailInitFallback($thumbnail, item) {
+    const thumbBase = item.customData?.thumbBase;
+    if (!thumbBase) return;
+
+    const bg = `image-set(
+      url("${thumbBase}-400w.webp") 1x,
+      url("${thumbBase}-800w.webp") 2x,
+      url("${thumbBase}-1200w.webp") 3x
+    )`;
+
+    $thumbnail.find('.nGY2TnImg').css('background-image', bg);
+    $thumbnail.find('img.nGY2TnImg2').attr('src', `${thumbBase}-400w.webp`);
+  }
   </script>
 </body>
 </html>

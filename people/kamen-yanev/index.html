@@ -9,9 +9,9 @@
   
   <meta property="og:title" content="Камен Янев | Борислав Дочев">
   <meta property="og:description" content="Галерия и участия на Камен Янев.">
-  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people/kamen-yanev/people-kamen-yanev.webp">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="800">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/main-page/P1001144-1200w.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
   <meta property="og:image:alt" content="Камен Янев">
   <meta property="og:url" content="https://photos.kupichka.org/people/kamen-yanev/">
   <meta property="og:type" content="profile">
@@ -74,14 +74,14 @@
   
   <div class="person-description-container" style="max-width: 860px;">
     <p class="person-description-text" style="margin-bottom: 5px;">
-      Камен Янев e китарист и аудиоинженер от НПМГ.
+      Камен e флейтист, китарист и аудиоинженер от НПМГ.
     </p>
     <p class="person-description-text" style="margin-top: 0;">  
-      Страницата събира негови изпълнения на живо и принос в звукозаписа - песни като <em>„Élan“</em> и композиции с аудиообработка, изпълнени за събития като <span>Награждаване на НПМГ</span>
+      Той е ентусиазиран флейтист и деен човек зад кулисите - отговаря за всичко, свързано с аудиото. Участва в песни като <em>„Élan“</em> на Nightwish.
     </p>
   </div>
 
-  <div class="single-picture-gallery" style="min-height: 370px;">
+  <div style="min-height: 370px;">
     <div role="main" id="gallery"></div>
   </div>
   
@@ -131,15 +131,36 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
   <script>
-  jQuery("#gallery").nanogallery2({
-    itemsBaseURL: "",
-    items: [
+  const rawItems = [
       {
         "src": "/images/full/main-page/kamen.webp",
         "srct": "/images/thumb/main-page/kamen.webp",
         "title": "Камен Янев"
       }
-    ],
+    ];
+
+  const makeThumbSet = (base) => `
+    image-set(
+      url("${base}-400w.webp") 1x,
+      url("${base}-800w.webp") 2x,
+      url("${base}-1200w.webp") 3x
+    )
+  `;
+
+  const responsiveItems = rawItems.map(item => {
+    const thumbBase = item.srct.replace(/\.webp$/, '');
+    return {
+      ...item,
+      srct: `${thumbBase}-400w.webp`,
+      customData: {
+        thumbBase
+      }
+    };
+  });
+
+  jQuery("#gallery").nanogallery2({
+    itemsBaseURL: "",
+    items: responsiveItems,
     galleryDisplayMode: 'rows',
     gallerySorting: 'none',
     thumbnailDisplayOrder: 'none',
@@ -174,8 +195,26 @@
       },
     },
 
-    locationHash: true
+    // DEEP LINKING
+    locationHash: true,
+
+    // RESPONSIVE IMAGES
+    fnThumbnailInit: fnThumbnailInitFallback,
   });
+  
+  function fnThumbnailInitFallback($thumbnail, item) {
+    const thumbBase = item.customData?.thumbBase;
+    if (!thumbBase) return;
+
+    const bg = `image-set(
+      url("${thumbBase}-400w.webp") 1x,
+      url("${thumbBase}-800w.webp") 2x,
+      url("${thumbBase}-1200w.webp") 3x
+    )`;
+
+    $thumbnail.find('.nGY2TnImg').css('background-image', bg);
+    $thumbnail.find('img.nGY2TnImg2').attr('src', `${thumbBase}-400w.webp`);
+  }
   </script>
 </body>
 </html>

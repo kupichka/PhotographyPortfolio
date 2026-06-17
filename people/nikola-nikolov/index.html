@@ -9,7 +9,7 @@
   
   <meta property="og:title" content="Никола Николов | Борислав Дочев">
   <meta property="og:description" content="Никола Николов - хора и изпълнители, заснети от Борислав Дочев">
-  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people/nikola-nikolov/people-nikola-nikolov.webp">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people/nikola-nikolov/people-nikola-nikolov-800w.webp">
   <meta property="og:image:width" content="540">
   <meta property="og:image:height" content="594">
   <meta property="og:image:alt" content="Момче в бежава тениска държи фотоапарат, докато гледа към камерата">
@@ -29,26 +29,14 @@
 </head>
 <body>
   <nav class="navigation">
-    <h1 class="navigation-name">
-      <a href="/">Борислав Дочев</a>
-    </h1>
-    
+    <h1 class="navigation-name"><a href="/">Борислав Дочев</a></h1>
     <button class="menu-toggle" aria-expanded="false" aria-controls="navigation-links" aria-label="Превключване на менюто">
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
-      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span><span class="hamburger-bar"></span><span class="hamburger-bar"></span>
     </button>
-
     <div class="navigation-right" id="navigation-links">
-      <div class="navigation-events">
-        <a href="/events/">Събития</a>
-      </div>
-      <div class="navigation-people">
-        <a href="/people/">Хора</a>
-      </div>
-      <div class="navigation-about">
-        <a href="/about/">За мен</a>
-      </div>
+      <div class="navigation-events"><a href="/events/">Събития</a></div>
+      <div class="navigation-people"><a href="/people/">Хора</a></div>
+      <div class="navigation-about"><a href="/about/">За мен</a></div>
     </div>
   </nav>
   <script>
@@ -70,9 +58,97 @@
       });
     });
   </script>
-  <h2>Никола Николов</h2>
-  <img src="/images/thumb/people/nikola-nikolov/people-nikola-nikolov.webp" style="max-width: 100%;">
-  
+
+  <div style="margin-top: 40px;"></div>
+  <h2 class="person-page-title">Никола Николов</h2>
+
+  <div class="person-description-container" style="max-width: 860px;">
+    <p class="person-description-text" style="margin-bottom: 5px;">
+      Никола е оператор зад камерата от НПМГ.
+    </p>
+    <p class="person-description-text" style="margin-top: 0;">
+      Страницата събира негови изпълнения на живо и участия от училищни концерти.
+    </p>
+  </div>
+
+  <div style="min-height: 370px;">
+    <div role="main" id="gallery"></div>
+  </div>
+
+  <hr class="person-divider">
+
+  <div id="videos" class="person-performances-section">
+    <h3 class="person-section-title">Дейност</h3>
+    Никола е помагал със заснемането на <a href="/events/2026_05_15/">изпращането на НПМГ випуск 2026</a>.
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+  <script>
+  const rawItems = [
+      {
+        "src": "/images/full/people/nikola-nikolov/people-nikola-nikolov.webp",
+        "srct": "/images/thumb/people/nikola-nikolov/people-nikola-nikolov.webp",
+        "title": "Никола с камера в ръка гледа към камерата."
+      }
+    ];
+
+  const makeThumbSet = (base) => `
+    image-set(
+      url("${base}-400w.webp") 1x,
+      url("${base}-800w.webp") 2x,
+      url("${base}-1200w.webp") 3x
+    )
+  `;
+
+  const responsiveItems = rawItems.map(item => {
+    const thumbBase = item.srct.replace(/\.webp$/, '');
+    return {
+      ...item,
+      srct: `${thumbBase}-400w.webp`,
+      customData: {
+        thumbBase
+      }
+    };
+  });
+
+  jQuery("#gallery").nanogallery2({
+    itemsBaseURL: "",
+    items: responsiveItems,
+    galleryDisplayMode: 'rows',
+    gallerySorting: 'none',
+    thumbnailDisplayOrder: 'none',
+
+    thumbnailHeight: '370',
+    thumbnailWidth: '270',
+    thumbnailAlignment: 'center',
+    thumbnailGutterWidth: 10,
+    thumbnailGutterHeight: 10,
+    thumbnailBorderHorizontal: 0,
+    thumbnailBorderVertical: 0,
+    thumbnailLabel: { display: false },
+
+    galleryDisplayTransitionDuration: 1500,
+    thumbnailDisplayTransition: 'imageSlideUp',
+    thumbnailDisplayTransitionDuration: 1200,
+    thumbnailDisplayTransitionEasing: 'easeInOutQuint',
+    thumbnailDisplayInterval: 60,
+
+    thumbnailBuildInit2: 'image_scale_1.15',
+    thumbnailHoverEffect2: 'thumbnail_scale_1.00_1.05_300|image_scale_1.15_1.00',
+    touchAnimation: true,
+    touchAutoOpenDelay: 500,
+
+    viewerTools: {
+      topRight: 'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
+    },
+
+    galleryTheme : {
+      thumbnail: { background: '#111' }
+    },
+
+    locationHash: true
+  });
+  </script>
 </body>
 </html>
-

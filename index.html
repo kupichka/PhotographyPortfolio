@@ -9,9 +9,9 @@
 
   <meta property="og:title" content="Портфолио | Борислав Дочев">
   <meta property="og:description" content="Колекция от авторски снимки и събития, заснети от официалния фотограф на НПМГ. Сайтът покрива дейността зад обектива на Борислав.">
-  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/main-page/101_4477.webp">
-  <meta property="og:image:width" content="400">
-  <meta property="og:image:height" content="300">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/main-page/101_4477-1200w.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="900">
   <meta property="og:image:alt" content="Синеоко момче с дълга коса в студени цветове.">
   <meta property="og:url" content="https://photos.kupichka.org/">
   <meta property="og:type" content="website">
@@ -83,11 +83,11 @@
   </p>
   <div style="display: flex; flex-wrap: wrap; align-items: center;">
     <div class="image-slider">
-      <span class="label-before">Преди</span> <span class="label-after">След</span>
+      <span class="label-before" aria-hidden="true">Преди</span> <span class="label-after" aria-hidden="true">След</span>
       <img src="/images/comparisons/midichki after.webp" alt="Синеоко момче отблизо с видимо акне." fetchpriority="high" class="image-after">
       <img src="/images/comparisons/midichki before.webp" alt="Синеоко момче отблизо  без ясно видимо акне." fetchpriority="high" class="image-before">
       
-      <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input">
+      <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input" aria-label="Comparison slider: before image on left, after image on right">
       
       <div class="slider-line"></div>
       <div class="slider-button">
@@ -96,11 +96,11 @@
       </div>
     </div>
     <div class="image-slider">
-      <span class="label-before">Преди</span> <span class="label-after">След</span>
+      <span class="label-before" aria-hidden="true">Преди</span> <span class="label-after" aria-hidden="true">След</span>
       <img src="/images/comparisons/upside down certificate fixed.webp" alt="Момче, държащо сертификат в правилната посока." fetchpriority="high" class="image-after">
       <img src="/images/comparisons/upside down certificate.webp" alt="Момче, държащо сертификата си наобратно" fetchpriority="high" class="image-before">
       
-      <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input">
+      <input type="range" min="0" max="100" step="0.1" value="51.5" class="slider-input" aria-label="Comparison slider: before image on left, after image on right">
       
       <div class="slider-line"></div>
       <div class="slider-button">
@@ -206,11 +206,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
   <script>
-  jQuery("#gallery-main-page").nanogallery2({
-
-    // CONTENT SOURCE
-    itemsBaseURL: "",
-    items: [
+  const rawItems = [
       {
         "src": "images/full/main-page/101_4477.webp",
         "srct": "images/thumb/main-page/101_4477.webp",
@@ -456,7 +452,31 @@
         "srct": "/images/thumb/main-page/P1025004.webp",
         "title": "Учител с очила в тъмно синя блуза се навежда настрани."
       }
-    ],
+    ];
+    
+  const makeThumbSet = (base) => `
+    image-set(
+      url("${base}-400w.webp") 1x,
+      url("${base}-800w.webp") 2x,
+      url("${base}-1200w.webp") 3x
+    )
+  `;
+
+  const responsiveItems = rawItems.map(item => {
+    const thumbBase = item.srct.replace(/\.webp$/, '');
+    return {
+      ...item,
+      srct: `${thumbBase}-400w.webp`,
+      customData: {
+        thumbBase
+      }
+    };
+  });
+
+  jQuery("#gallery-main-page").nanogallery2({
+    // CONTENT SOURCE
+    itemsBaseURL: "",
+    items: responsiveItems,
     // GALLERY LAYOUT
     galleryMosaic : [                       // default layout
       { w: 2, h: 2, c: 1, r: 1 },
@@ -534,8 +554,25 @@
     },
 
     // DEEP LINKING
-    locationHash: true
+    locationHash: true,
+
+    // RESPONSIVE IMAGES
+    fnThumbnailInit: fnThumbnailInitFallback,
   });
+  
+  function fnThumbnailInitFallback($thumbnail, item) {
+    const thumbBase = item.customData?.thumbBase;
+    if (!thumbBase) return;
+
+    const bg = `image-set(
+      url("${thumbBase}-400w.webp") 1x,
+      url("${thumbBase}-800w.webp") 2x,
+      url("${thumbBase}-1200w.webp") 3x
+    )`;
+
+    $thumbnail.find('.nGY2TnImg').css('background-image', bg);
+    $thumbnail.find('img.nGY2TnImg2').attr('src', `${thumbBase}-400w.webp`);
+  }
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {

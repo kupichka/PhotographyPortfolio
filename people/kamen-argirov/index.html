@@ -9,9 +9,9 @@
   
   <meta property="og:title" content="Камен Аргиров | Борислав Дочев">
   <meta property="og:description" content="Галерия и участия на Камен Аргиров.">
-  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people/kamen-argirov/people-kamen-argirov.webp">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="800">
+  <meta property="og:image" content="https://photos.kupichka.org/images/thumb/people/kamen-argirov/people-kamen-argirov-1200w.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1755">
   <meta property="og:image:alt" content="Камен Аргиров">
   <meta property="og:url" content="https://photos.kupichka.org/people/kamen-argirov/">
   <meta property="og:type" content="profile">
@@ -81,7 +81,7 @@
     </p>
   </div>
 
-  <div class="single-picture-gallery" style="min-height: 370px;">
+  <div style="min-height: 370px;">
     <div role="main" id="gallery"></div>
   </div>
   
@@ -114,15 +114,36 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
   <script>
-  jQuery("#gallery").nanogallery2({
-    itemsBaseURL: "",
-    items: [
+  const rawItems = [
       {
-        "src": "/images/full/people/kamen-argirov/people-kamen-argirov.webp",
-        "srct": "/images/thumb/people/kamen-argirov/people-kamen-argirov.webp",
+        "src": "/images/full/people/kamen-argirov/IMG_1115.webp",
+        "srct": "/images/thumb/people/kamen-argirov/IMG_1115.webp",
         "title": "Камен Аргиров"
       }
-    ],
+    ];
+    
+  const makeThumbSet = (base) => `
+    image-set(
+      url("${base}-400w.webp") 1x,
+      url("${base}-800w.webp") 2x,
+      url("${base}-1200w.webp") 3x
+    )
+  `;
+
+  const responsiveItems = rawItems.map(item => {
+    const thumbBase = item.srct.replace(/\.webp$/, '');
+    return {
+      ...item,
+      srct: `${thumbBase}-400w.webp`,
+      customData: {
+        thumbBase
+      }
+    };
+  });
+
+  jQuery("#gallery").nanogallery2({
+    itemsBaseURL: "",
+    items: responsiveItems,
     galleryDisplayMode: 'rows',
     gallerySorting: 'none',
     thumbnailDisplayOrder: 'none',
@@ -157,8 +178,26 @@
       },
     },
 
-    locationHash: true
+    // DEEP LINKING
+    locationHash: true,
+
+    // RESPONSIVE IMAGES
+    fnThumbnailInit: fnThumbnailInitFallback,
   });
+  
+  function fnThumbnailInitFallback($thumbnail, item) {
+    const thumbBase = item.customData?.thumbBase;
+    if (!thumbBase) return;
+
+    const bg = `image-set(
+      url("${thumbBase}-400w.webp") 1x,
+      url("${thumbBase}-800w.webp") 2x,
+      url("${thumbBase}-1200w.webp") 3x
+    )`;
+
+    $thumbnail.find('.nGY2TnImg').css('background-image', bg);
+    $thumbnail.find('img.nGY2TnImg2').attr('src', `${thumbBase}-400w.webp`);
+  }
   </script>
 </body>
 </html>

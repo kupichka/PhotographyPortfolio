@@ -16,15 +16,15 @@ $excludeDirs = @("retired", "unsorted", "papaya")
 # If an image is in "\people\...", it uses the 'people' profile.
 # If a folder isn't listed here, it falls back to 'default'.
 $profiles = @{
-    "default"   = @{ thumbResize = "500>"; thumbQuality = 90; fullResize = "2000>"; fullQuality = 75 }
-    "people"    = @{ thumbResize = "800>"; thumbQuality = 98; fullResize = "2000>"; fullQuality = 80 }
-    "events"    = @{ thumbResize = "600>"; thumbQuality = 90; fullResize = "2000>"; fullQuality = 75 }
-    "main-page" = @{ thumbResize = "800>"; thumbQuality = 95; fullResize = "2500>"; fullQuality = 85 }
+    "default"   = @{ widths = @(400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 75 }
+    "people"    = @{ widths = @(400, 800, 1200); quality = 80; fullResize = "2000>"; fullQuality = 80 }
+    "events"    = @{ widths = @(400, 800, 1200); quality = 80; fullResize = "2000>"; fullQuality = 75 }
+    "main-page" = @{ widths = @(400, 800, 1200); quality = 85; fullResize = "2500>"; fullQuality = 85 }
 }
 
 # (Optional) Keep specific files strictly High Quality regardless of their folder
 $highQualityOverrideList = @(
-    "hjIMG_0753_01.jpg", "hjIMG_0822.jpg", "hjIMG_1041.jpg" # Add the rest here if still needed
+
 )
 # ---------------------
 
@@ -75,11 +75,16 @@ foreach ($file in $files) {
     $fullPath  = Join-Path $destFullDir "$($file.BaseName).webp"
 
     # --- 5. Process Thumbnail ---
-    if (-not (Test-Path $thumbPath)) {
-        Write-Host "Generating thumbnail for: $($file.Name) [Profile: $(if($topFolder){$topFolder}else{'default'})]" -ForegroundColor Cyan
-        magick "$($file.FullName)" -auto-orient -resize $($config.thumbResize) -quality $($config.thumbQuality) $thumbPath
-    } else {
-        Write-Host "Skipping thumbnail (exists): $($file.Name)" -ForegroundColor DarkGray
+	foreach ($w in $config.widths) {
+        # Construct path with width signature (e.g., name-400w.webp)
+        $thumbPath = Join-Path $destThumbDir "$($file.BaseName)-${w}w.webp"
+        
+        if (-not (Test-Path $thumbPath)) {
+            Write-Host "Generating ${w}w thumbnail for: $($file.Name) [Profile: $(if($topFolder){$topFolder}else{'default'})]" -ForegroundColor Cyan
+            magick "$($file.FullName)" -auto-orient -resize "${w}>" -quality $($config.quality) $thumbPath
+        } else {
+            Write-Host "Skipping ${w}w thumbnail (exists): $($file.Name)" -ForegroundColor DarkGray
+        }
     }
 
     # --- 6. Process Full Size + Watermark ---
