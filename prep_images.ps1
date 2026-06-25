@@ -74,18 +74,22 @@ foreach ($file in $files) {
     $thumbPath = Join-Path $destThumbDir "$($file.BaseName).webp"
     $fullPath  = Join-Path $destFullDir "$($file.BaseName).webp"
 
-    # --- 5. Process Thumbnail ---
+	# --- 5. Process Thumbnail (square center crop) ---
 	foreach ($w in $config.widths) {
-        # Construct path with width signature (e.g., name-400w.webp)
-        $thumbPath = Join-Path $destThumbDir "$($file.BaseName)-${w}w.webp"
-        
-        if (-not (Test-Path $thumbPath)) {
-            Write-Host "Generating ${w}w thumbnail for: $($file.Name) [Profile: $(if($topFolder){$topFolder}else{'default'})]" -ForegroundColor Cyan
-            magick "$($file.FullName)" -auto-orient -resize "${w}>" -quality $($config.quality) $thumbPath
-        } else {
-            Write-Host "Skipping ${w}w thumbnail (exists): $($file.Name)" -ForegroundColor DarkGray
-        }
-    }
+		$thumbPath = Join-Path $destThumbDir "$($file.BaseName)-${w}w.webp"
+
+		if (-not (Test-Path $thumbPath)) {
+			Write-Host "Generating ${w}w square thumbnail for: $($file.Name) [Profile: $(if($topFolder){$topFolder}else{'default'})]" -ForegroundColor Cyan
+
+			magick "$($file.FullName)" -auto-orient `
+				-thumbnail "${w}x${w}^" `
+				-gravity center -extent "${w}x${w}" `
+				-quality $($config.quality) `
+				$thumbPath
+		} else {
+			Write-Host "Skipping ${w}w thumbnail (exists): $($file.Name)" -ForegroundColor DarkGray
+		}
+	}
 
     # --- 6. Process Full Size + Watermark ---
     if (-not (Test-Path $fullPath)) {
