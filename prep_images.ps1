@@ -16,10 +16,10 @@ $excludeDirs = @("retired", "unsorted", "papaya")
 # If an image is in "\people\...", it uses the 'people' profile.
 # If a folder isn't listed here, it falls back to 'default'.
 $profiles = @{
-    "default"   = @{ widths = @(400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 75 }
-    "people"    = @{ widths = @(400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 80 }
-    "events"    = @{ widths = @(400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 75 }
-    "main-page" = @{ widths = @(400, 800, 1200); quality = 83; fullResize = "2500>"; fullQuality = 85 }
+    "default"   = @{ widths = @(120, 400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 75 }
+    "people"    = @{ widths = @(120, 400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 80 }
+    "events"    = @{ widths = @(120, 400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 75 }
+    "main-page" = @{ widths = @(120, 400, 800, 1200); quality = 83; fullResize = "2500>"; fullQuality = 85 }
 }
 
 # (Optional) Keep specific files strictly High Quality regardless of their folder

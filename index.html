@@ -507,14 +507,6 @@
       }
     ];
     
-  const makeThumbSet = (base) => `
-    image-set(
-      url("${base}-400w.webp") 1x,
-      url("${base}-800w.webp") 2x,
-      url("${base}-1200w.webp") 3x
-    )
-  `;
-
   function shuffleInPlace(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = (Math.random() * (i + 1)) | 0;
@@ -585,6 +577,13 @@
     return item.allowedTiles.includes(tileKey);
   }
 
+  function insertBeforeExtension(path, suffix) {
+    const slash = Math.max(path.lastIndexOf('/'), path.lastIndexOf('\\'));
+    const dot = path.lastIndexOf('.');
+    if (dot <= slash) return `${path}-${suffix}`;
+    return `${path.slice(0, dot)}-${suffix}${path.slice(dot)}`;
+  }
+
   function buildItemsForLayout(items, layout) {
     const slots = layout.map((tile, index) => ({
       index,
@@ -640,7 +639,13 @@
     for (const slot of orderedSlots) {
       const item = takeRandomMatching(slot.key);
       if (item) {
-        assigned[slot.index] = item;
+        assigned[slot.index] = {
+          ...item,
+          customData: {
+            ...(item.customData || {}),
+            tileKey: slot.key
+          }
+        };
       }
     }
 
@@ -662,11 +667,15 @@
 
   // Leave your responsive thumbnail logic alone.
   const responsiveItems = gallerySourceItems.map(item => {
-    const thumbBase = item.srct.replace(/\.webp$/, '');
+    const tileKey = item.customData?.tileKey;
+    const shapedSrct = tileKey ? insertBeforeExtension(item.srct, tileKey) : item.srct;
+    const thumbBase = shapedSrct.replace(/\.[^.]+$/, '');
+
     return {
       ...item,
       srct: `${thumbBase}-400w.webp`,
       customData: {
+        ...(item.customData || {}),
         thumbBase
       }
     };
@@ -728,6 +737,7 @@
   function fnThumbnailInitFallback($thumbnail, item) {
     const thumbBase = item.customData?.thumbBase;
     if (!thumbBase) return;
+    console.log(thumbBase);
 
     const bg = `image-set(
       url("${thumbBase}-400w.webp") 1x,
@@ -754,8 +764,6 @@
         });
       });
     });
-  </script>
-  <script>
     document.addEventListener('DOMContentLoaded', () => {
       
       // 1. Observer for the Header (Date & Title)
