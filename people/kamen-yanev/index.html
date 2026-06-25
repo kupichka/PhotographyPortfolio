@@ -139,14 +139,6 @@
       }
     ];
 
-  const makeThumbSet = (base) => `
-    image-set(
-      url("${base}-400w.webp") 1x,
-      url("${base}-800w.webp") 2x,
-      url("${base}-1200w.webp") 3x
-    )
-  `;
-
   const responsiveItems = rawItems.map(item => {
     const thumbBase = item.srct.replace(/\.webp$/, '');
     return {
