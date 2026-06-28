@@ -14,7 +14,11 @@
    ========================================================================== */
 
 :root {
-  --timeline-left: 120px; /* Distance from left for the line */
+  --timeline-left: 120px;
+}
+
+html {
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -547,6 +551,8 @@ h2.events-date {
   overflow: hidden;
   text-decoration: none;
   transition: transform 0.2s ease-in-out;
+
+  will-change: transform, opacity;
 }
 
 .person-card .person-image {
@@ -590,6 +596,37 @@ h2.events-date {
   color: #ffecd6;
   text-shadow: 1px 1px 3px #12121a,
                2px 2px 4px #12121a;
+}
+
+/* Staggered animation via the sibling-index */
+
+.person-card {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@supports (animation-delay: calc(sibling-index() * 1ms)) {
+  .person-card {
+    animation: slideUp .3s ease both;
+    animation-delay: calc(sibling-index() * 50ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .person-card {
+    animation: fadeIn 0.1s ease forwards;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    translate: 0px 200px;
+  }
+  to {
+    opacity: 1;
+    translate: 0px 0px;
+  }
 }
 
 /* =================================
@@ -1070,6 +1107,4 @@ h2.person-page-title {
   }
 }
 
-.body {
-  scrollbar-gutter: stable;
-}
+/* TODO: RESPECT PREFERS REDUCED MOTION!! */
