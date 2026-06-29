@@ -601,20 +601,23 @@ h2.events-date {
 
 /* Staggered animation via the sibling-index */
 
-.person-card {
+.person-card,
+.events-card-vertical {
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;
 }
 
 @supports (animation-delay: calc(sibling-index() * 1ms)) {
-  .person-card {
-    animation: slideUp .3s ease both;
-    animation-delay: calc(sibling-index() * 50ms);
+  .person-card,
+  .events-card-vertical {
+    animation: slideUp .3s cubic-bezier(0.25, 1, 0.5, 1) both;
+    animation-delay: calc((sibling-index() - 1) * 50ms);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .person-card {
+  .person-card,
+  .events-card-vertical {
     animation: fadeIn 0.1s ease forwards;
   }
 }
