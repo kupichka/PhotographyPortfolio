@@ -167,10 +167,22 @@ foreach ($file in $files) {
     if (-not (Test-Path $fullPath)) {
         Write-Host "Generating full size for: $($file.Name)" -ForegroundColor Green
         
-        magick "$($file.FullName)" -auto-orient -resize $($config.fullResize) -quality $($config.fullQuality) `
-            -fill "white" -background "none" -size "%[fx:w*0.12]x" label:"$watermark" `
-            -bordercolor "#00000080" -border 12x6 `
-            -gravity southeast -geometry +15+15 -composite $fullPath
+        magick "$($file.FullName)" `
+			-auto-orient `
+			-resize $($config.fullResize) `
+			"(" `
+				-background none `
+				-fill white `
+				-size "%[fx:w*0.12]x" `
+				label:"$watermark" `
+				-bordercolor "#00000080" `
+				-border 12x6 `
+			")" `
+			-gravity southeast `
+			-geometry +15+15 `
+			-composite `
+			-quality $($config.fullQuality) `
+			$fullPath
     } else {
         Write-Host "Skipping full size (exists): $($file.Name)" -ForegroundColor DarkGray
     }
