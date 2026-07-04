@@ -22,6 +22,17 @@ $profiles = @{
     "main-page" = @{ widths = @(120, 400, 800, 1200); quality = 83; fullResize = "2500>"; fullQuality = 85 }
 }
 
+# --- LIGHT TABLE VIEWPORT & WATERMARK TARGET ---
+$lightTableWidth  = 1920          # available image area width
+$lightTableHeight = [math]::Round(1920 * 7/16)  # 840, aspect ratio 16/7
+
+# Desired on‑screen appearance of the watermark
+$targetFontHeight    = 24    # text height in screen pixels
+$targetPadHorizontal = 6     # horizontal padding around text
+$targetPadVertical   = 3     # vertical padding
+$targetOffset        = 15    # distance from bottom‑right corner
+# ------------------------------------------------
+
 # (Optional) Keep specific files strictly High Quality regardless of their folder
 $highQualityOverrideList = @(
 
@@ -125,7 +136,7 @@ foreach ($file in $files) {
 	# generate 1x1, 1x2, 2x1, 2x2 crops with the same responsive widths.
 	$inMainPage = ($relDir -match '(^|\\)main-page(\\|$)')
 	$needsShapeThumbs = $specialThumbShapeList -contains $relKey
-	if ($needsShapeThumbs) {
+	if ($needsShapeThumbs -and -not (Test-Path $thumbPath)) {
 		Write-Host "SPECIAL THUMBS ENABLED: $relKey" -ForegroundColor Yellow
 	}
 
@@ -163,26 +174,53 @@ foreach ($file in $files) {
 		}
 	}
 
-    # --- 6. Process Full Size + Watermark ---
+        # --- 6. Process Full Size + Watermark ---
     if (-not (Test-Path $fullPath)) {
         Write-Host "Generating full size for: $($file.Name)" -ForegroundColor Green
-        
+
+        # 6a. Get original dimensions
+        $origDims = & magick identify -format "%w %h" $file.FullName
+        $origW, $origH = $origDims -split ' ' | ForEach-Object { [int]$_ }
+
+        # 6b. Compute dimensions after fullResize constraint (e.g. "2000>")
+        $maxFull = [int]($config.fullResize -replace '[^\d]', '')
+        if ($origW -le $maxFull -and $origH -le $maxFull) {
+            $wFull = $origW
+            $hFull = $origH
+        } else {
+            $scaleFull = $maxFull / [Math]::Max($origW, $origH)
+            $wFull = [math]::Round($origW * $scaleFull)
+            $hFull = [math]::Round($origH * $scaleFull)
+        }
+
+        # 6c. Display scale factor (browser will apply this)
+        $s = [Math]::Min($lightTableWidth / $wFull, $lightTableHeight / $hFull)
+
+        # 6d. Compute watermark parameters for the full‑size image
+        $pointSize = [math]::Round($targetFontHeight / $s)
+        $borderH   = [math]::Round($targetPadHorizontal / $s)
+        $borderV   = [math]::Round($targetPadVertical / $s)
+        $offX      = [math]::Round($targetOffset / $s)
+        $offY      = [math]::Round($targetOffset / $s)
+
+        # 6e. Generate the watermarked image
         magick "$($file.FullName)" `
-			-auto-orient `
-			-resize $($config.fullResize) `
-			"(" `
-				-background none `
-				-fill white `
-				-size "%[fx:w*0.12]x" `
-				label:"$watermark" `
-				-bordercolor "#00000080" `
-				-border 12x6 `
-			")" `
-			-gravity southeast `
-			-geometry +15+15 `
-			-composite `
-			-quality $($config.fullQuality) `
-			$fullPath
+            -auto-orient `
+            -resize $($config.fullResize) `
+            "(" `
+                -background none `
+				-font "C:/Users/Bobi/Appdata/Local/Microsoft/Windows/Fonts/forum-regular.ttf" `
+                -fill white `
+                -pointsize $pointSize `
+                label:"$watermark" `
+                -bordercolor "#00000080" `
+                -border "${borderH}x${borderV}" `
+            ")" `
+            -gravity southeast `
+            -geometry "+${offX}+${offY}" `
+            -composite `
+            -quality $($config.fullQuality) `
+            $fullPath
     } else {
         Write-Host "Skipping full size (exists): $($file.Name)" -ForegroundColor DarkGray
     }
