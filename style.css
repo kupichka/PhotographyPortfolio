@@ -1118,3 +1118,14 @@ h2.person-page-title {
 }
 
 /* TODO: RESPECT PREFERS REDUCED MOTION!! */
+
+
+.andzhi-text-container { 
+  display: flex;
+  justify-content: center;
+}
+
+.andzhi-text {
+  width: 80%;
+  font-family: sans-serif;
+}
