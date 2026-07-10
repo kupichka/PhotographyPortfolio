@@ -743,16 +743,17 @@ h2.events-date {
   display: inline-block;
   width: 16px;
   height: 16px;
-  margin-right: 8px;
+  margin-right: 6px;
   background-size: contain;
   background-repeat: no-repeat;
   filter: invert(88%) sepia(31%) saturate(471%) hue-rotate(311deg) brightness(109%) contrast(103%);
 }
 
-.icon-mic { background-image: url('../images/icons/mic-vocal.svg'); }
-.icon-guitar { background-image: url('../images/icons/guitar.svg'); }
-.icon-drum { background-image: url('../images/icons/drum.svg'); }
-.icon-piano { background-image: url('../images/icons/piano.svg'); }
+.icon-mic { background-image: url('/images/icons/mic-vocal.svg'); }
+.icon-guitar { background-image: url('/images/icons/guitar.svg'); }
+.icon-drum { background-image: url('/images/icons/drum.svg'); }
+.icon-piano { background-image: url('/images/icons/piano.svg'); }
+.icon-person { background-image: url('/images/icons/generic-person.svg'); }
 
 /* additional styling for when the song was played */
 /* Styling for the event link */
