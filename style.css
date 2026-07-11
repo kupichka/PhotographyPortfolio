@@ -921,7 +921,7 @@ a.btn-back:visited {
 /* Tablet Viewports (Up to 1000px wide) */
 @media screen and (max-width: 1000px) {
   .events-cards-container {
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   h2.events-date {
     text-align: center;
