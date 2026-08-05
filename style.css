@@ -805,8 +805,8 @@ h2.events-date {
 /* additional styling for when the song was played */
 /* Styling for the event link */
 .video-event-link {
-  font-family: sans-serif;
   font-size: 13px;
+  font-weight: 350;
   text-align: center;
   color: #ffecd680;
   text-decoration: none;
@@ -927,8 +927,8 @@ a.btn-back:visited {
 }
 
 .person-description-text {
-  font-family: sans-serif;
-  font-size: 1.1rem;
+  /* font-family: sans-serif;
+  font-size: 1.1rem; */
   line-height: 1.6;
   color: #ffecd6b5;
 }
