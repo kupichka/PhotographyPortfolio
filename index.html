@@ -857,40 +857,19 @@
   }
   </script>
   <script>
-    document.querySelectorAll(".image-slider").forEach((slider) => {
-      const input = slider.querySelector(".slider-input");
-      const before = slider.querySelector(".image-before");
-      const line = slider.querySelector(".slider-line");
-      const button = slider.querySelector(".slider-button");
+    document.addEventListener('DOMContentLoaded', () => {
+      // Find all sliders on the page
+      const sliders = document.querySelectorAll('.image-slider');
 
-      function setPosition(percent) {
-        const p = Math.max(0, Math.min(100, percent));
-        slider.style.setProperty("--position", `${p}%`);
-        input.value = p;
-      }
+      sliders.forEach(slider => {
+        // Find the input within this specific slider
+        const input = slider.querySelector('.slider-input');
 
-      function positionFromClientX(clientX) {
-        const rect = slider.getBoundingClientRect();
-        const percent = ((clientX - rect.left) / rect.width) * 100;
-        return percent;
-      }
-
-      function onPointerDown(e) {
-        slider.setPointerCapture?.(e.pointerId);
-        setPosition(positionFromClientX(e.clientX));
-      }
-
-      function onPointerMove(e) {
-        if (e.buttons === 0) return;
-        setPosition(positionFromClientX(e.clientX));
-      }
-
-      input.addEventListener("input", (e) => {
-        setPosition(Number(e.target.value));
+        // Update the CSS variable when the input changes
+        input.addEventListener('input', (e) => {
+          slider.style.setProperty('--position', `${e.target.value}%`);
+        });
       });
-
-      slider.addEventListener("pointerdown", onPointerDown);
-      slider.addEventListener("pointermove", onPointerMove);
     });
   </script>
   <script>
