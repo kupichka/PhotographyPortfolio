@@ -79,8 +79,8 @@ a:visited {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
   margin-bottom: 8px;
   position: relative; /* FIX: Allows z-index to take effect */
   z-index: 100;       /* Pushes nav above background content/grids */
@@ -500,10 +500,6 @@ a:visited {
    Events Page - Grid and Cards Layout
    ========================================================================== */
 
-.event-title {
-  text-align: center;
-}
-
 .events-cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -545,7 +541,7 @@ a:visited {
   font-weight: bold;
   font-size: 23px;
   line-height: 1.2;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   text-wrap: balance;
 }
 
@@ -577,7 +573,29 @@ a:visited {
 
 h2.events-date {
   text-align: center;
+  margin-top: 3.4rem;
+  scroll-margin-top: 25vh;
 }
+
+/* =========================
+    Standalone event page
+  ========================== */
+
+.event-title {
+  text-wrap: balance;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.event-date {
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffecd6b5;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  text-align:center;
+}
+
 /* ==========================================================================
   People Page - Cards Layout
   ========================================================================== */
@@ -808,6 +826,7 @@ h2.events-date {
   font-size: 13px;
   font-weight: 350;
   text-align: center;
+  text-wrap: balance;
   color: #ffecd680;
   text-decoration: none;
   margin-bottom: 12px;
@@ -853,11 +872,11 @@ h2.events-date {
 }
 
 .error-message {
-  font-family: sans-serif;
   font-size: 1.2rem;
   color: #ffecd6b5;
   margin-top: 10px;
   margin-bottom: 30px;
+  text-wrap: balance;
 }
 
 .error-image {
@@ -883,8 +902,7 @@ h2.events-date {
   margin-bottom: 28px;
 }
 
-.btn-back {
-  font-family: 'Forum', serif;
+.bright-button {
   font-size: 1.1rem;
   color: #12121a;
   background-color: #ffbd61;
@@ -895,11 +913,11 @@ h2.events-date {
   transition: all 0.2s ease-in-out;
 }
 
-a.btn-back:visited {
+a.bright-button:visited {
   color: #12121a;
 }
 
-.btn-back:hover {
+.bright-button:hover {
   background-color: #50dce8;
 }
 
@@ -967,9 +985,9 @@ a.btn-back:visited {
 
 /* Tablet Viewports (Up to 1000px wide) */
 @media screen and (max-width: 1000px) {
-  .events-cards-container {
+  /* .events-cards-container {
     justify-content: space-evenly;
-  }
+  } */
   h2.events-date {
     text-align: center;
   }
@@ -1077,6 +1095,7 @@ a.btn-back:visited {
     cursor: pointer;
     padding: 0;
     z-index: 101;
+    margin: 0 20px 0 20px;
   }
 
   .hamburger-bar {
@@ -1110,7 +1129,6 @@ a.btn-back:visited {
     left: 0;
     width: 100vw;
     height: 100vh;
-    height: 100dvh;
     background-color: #12121a;
     background-image: linear-gradient(180deg, #12121a 0%, #1c0b3a 100%);
     flex-direction: column;

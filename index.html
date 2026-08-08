@@ -135,7 +135,7 @@
       </div>
     </div>
     <div style="text-align: center; margin-top: 2rem;">
-      <a href="/events/" style="font-size: 1.1rem; font-weight: 500; text-decoration: underline;">
+      <a href="/events/" class="bright-button">
         Разгледай всички събития &rarr;
       </a>
     </div>
@@ -857,19 +857,40 @@
   }
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Find all sliders on the page
-      const sliders = document.querySelectorAll('.image-slider');
+    document.querySelectorAll(".image-slider").forEach((slider) => {
+      const input = slider.querySelector(".slider-input");
+      const before = slider.querySelector(".image-before");
+      const line = slider.querySelector(".slider-line");
+      const button = slider.querySelector(".slider-button");
 
-      sliders.forEach(slider => {
-        // Find the input within this specific slider
-        const input = slider.querySelector('.slider-input');
+      function setPosition(percent) {
+        const p = Math.max(0, Math.min(100, percent));
+        slider.style.setProperty("--position", `${p}%`);
+        input.value = p;
+      }
 
-        // Update the CSS variable when the input changes
-        input.addEventListener('input', (e) => {
-          slider.style.setProperty('--position', `${e.target.value}%`);
-        });
+      function positionFromClientX(clientX) {
+        const rect = slider.getBoundingClientRect();
+        const percent = ((clientX - rect.left) / rect.width) * 100;
+        return percent;
+      }
+
+      function onPointerDown(e) {
+        slider.setPointerCapture?.(e.pointerId);
+        setPosition(positionFromClientX(e.clientX));
+      }
+
+      function onPointerMove(e) {
+        if (e.buttons === 0) return;
+        setPosition(positionFromClientX(e.clientX));
+      }
+
+      input.addEventListener("input", (e) => {
+        setPosition(Number(e.target.value));
       });
+
+      slider.addEventListener("pointerdown", onPointerDown);
+      slider.addEventListener("pointermove", onPointerMove);
     });
   </script>
   <script>

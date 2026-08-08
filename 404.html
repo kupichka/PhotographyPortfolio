@@ -73,16 +73,20 @@
 
   <main class="error-container">
     <h2 class="error-code">404</h2>
-    <p class="error-message">Търсената страница не бе намерена. Някой да не я е взел?</p>
+    <p class="error-message">
+      Търсената страница не бе намерена. Някой да не я е взел?
+    </p>
     
     <div class="error-image">
       <img src="/images/404.webp" alt="Мъж в гръб, носещ лост за фитнес зад главата си">
     </div>
-    <a href="/events/2026_03_29/" class="video-event-link">
+    <a href="/events/2026_03_29/" class="video-event-link" style="font-weight: 400">
       Снимка от <span>Пролетния турнир по математика 2026</span>
     </a>
 
-    <a href="/" class="btn-back" onclick="goBack(event)">Назад</a>
+    <a href="/" class="bright-button" onclick="goBack(event)">
+      &larr; Назад
+    </a>
   </main>
   <script>
     function goBack(event){
@@ -91,6 +95,7 @@
         window.history.back();
       }
     }
+    document.querySelector(".error-message").innerText = Math.random() > 0.3 ? "Търсената страница не бе намерена. Някой да не я е взел?" : "Търсената страница не бе намерена. Някой да не я е изял?";
   </script>
 </body>
 </html>
