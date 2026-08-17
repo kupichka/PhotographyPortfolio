@@ -84,6 +84,25 @@ $specialThumbShapeList = @(
 	"events/2026_03_29/IMG_0140_02"
 );
 
+$specialThumbShapes = @{
+	"events/2026_05_15/IMG_0726_01" = @("all") 
+	"events/2026_05_15/IMG_0731"    = @("all") 
+	"events/2026_05_15/IMG_0753_01" = @("all") 
+	"events/2026_05_15/IMG_0768_01" = @("all") 
+	"events/2026_05_15/IMG_0779"    = @("all") 
+	"events/2026_05_15/IMG_0815"    = @("all") 
+	"events/2026_05_15/IMG_0875"    = @("all") 
+	"events/2026_05_15/IMG_1022"    = @("all") 
+	"events/2026_05_15/IMG_1141"    = @("all") 
+	"events/2026_05_15/IMG_1041"    = @("all") 
+	"events/2026_03_29/IMG_0140_02" = @("all") 
+	
+	"events/2026_05_09/IMG_0378"    = @("2x2")
+	"events/2026_05_09/IMG_0456"    = @("1x2")
+	"events/2026_05_09/IMG_0487"    = @("2x2")
+	"events/2026_05_09/IMG_0671-thumbnail" = @("2x1")
+}
+
 
 foreach ($file in $files) {
     # 1. Calculate relative directory path to mirror the structure
@@ -135,12 +154,22 @@ foreach ($file in $files) {
 	# Special logic only for /main-page/ images:
 	# generate 1x1, 1x2, 2x1, 2x2 crops with the same responsive widths.
 	$inMainPage = ($relDir -match '(^|\\)main-page(\\|$)')
-	$needsShapeThumbs = $specialThumbShapeList -contains $relKey
-	if ($needsShapeThumbs -and -not (Test-Path $thumbPath)) {
-		Write-Host "SPECIAL THUMBS ENABLED: $relKey" -ForegroundColor Yellow
+	$shapesToGenerate = @()
+	
+	if ($inMainPage) {
+		$shapesToGenerate = @("1x1", "1x2", "2x1", "2x2")
+	} 
+	elseif ($specialThumbShapes.ContainsKey($relKey)) {
+		$requestedShapes = $specialThumbShapes[$relKey]
+		if ($requestedShapes -contains "all") {
+			$shapesToGenerate = @("1x1", "1x2", "2x1", "2x2")
+		} else {
+			$shapesToGenerate = $requestedShapes
+		}
+		Write-Host "SPECIAL THUMBS ENABLED: $relKey -> [$($shapesToGenerate -join ', ')]" -ForegroundColor Yellow
 	}
 
-	# Old behavior for everything outside main-page
+	# Standard responsive widths (Uncropped)
 	foreach ($w in $config.widths) {
 		$thumbPath = Join-Path $destThumbDir "$($file.BaseName)-${w}w.webp"
 
@@ -151,13 +180,13 @@ foreach ($file in $files) {
 			Write-Host "Skipping ${w}w thumbnail (exists): $($file.Name)" -ForegroundColor DarkGray
 		}
 	}
-	if ($inMainPage -or $needsShapeThumbs) {
-		foreach ($shapeName in @("1x1", "1x2", "2x1", "2x2")) {
+
+	# Cropped Shape Thumbnails (Only runs if $shapesToGenerate has items)
+	if ($shapesToGenerate.Count -gt 0) {
+		foreach ($shapeName in $shapesToGenerate) {
 			$shape = $mainPageThumbShapes[$shapeName]
 
 			foreach ($w in $config.widths) {
-				# Keep the file naming width-based, but preserve the shape ratio.
-				# Example: 400w -> shape-scaled crop that keeps the same aspect ratio.
 				$scale = $w / 400.0
 				$tw = [math]::Round($shape.w * $scale)
 				$th = [math]::Round($shape.h * $scale)
@@ -165,7 +194,7 @@ foreach ($file in $files) {
 				$thumbPath = Join-Path $destThumbDir "$($file.BaseName)-${shapeName}-${w}w.webp"
 
 				if (-not (Test-Path $thumbPath)) {
-					Write-Host "Generating ${shapeName} ${w}w thumbnail for: $($file.Name) [Profile: $(if($topFolder){$topFolder}else{'default'})]" -ForegroundColor Cyan
+					Write-Host "Generating ${shapeName} ${w}w thumbnail for: $($file.Name)" -ForegroundColor Cyan
 					New-CroppedWebpThumb -InputFile $file.FullName -OutputFile $thumbPath -TargetW $tw -TargetH $th -Quality $config.quality
 				} else {
 					Write-Host "Skipping ${shapeName} ${w}w thumbnail (exists): $($file.Name)" -ForegroundColor DarkGray
