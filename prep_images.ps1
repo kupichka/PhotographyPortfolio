@@ -18,7 +18,7 @@ $excludeDirs = @("retired", "unsorted", "papaya")
 $profiles = @{
     "default"   = @{ widths = @(120, 400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 80 }
     "people"    = @{ widths = @(120, 400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 80 }
-    "events"    = @{ widths = @(120, 400, 800, 1200); quality = 75; fullResize = "2000>"; fullQuality = 85 }
+    "events"    = @{ widths = @(120, 400, 800, 1200); quality = 78; fullResize = "2000>"; fullQuality = 85 }
     "main-page" = @{ widths = @(120, 400, 800, 1200); quality = 83; fullResize = "2500>"; fullQuality = 85 }
 }
 
@@ -49,9 +49,10 @@ $files = Get-ChildItem -Path $srcPath -Recurse -File | Where-Object {
 # including the 10px gap between joined cells where applicable.
 $mainPageThumbShapes = @{
     "1x1" = @{ w = 220; h = 180 }
-    "1x2" = @{ w = 220; h = 370 }  # 180 + 180 + 10
-    "2x1" = @{ w = 450; h = 180 }  # 220 + 220 + 10
-    "2x2" = @{ w = 450; h = 370 }  # 220 + 220 + 10, 180 + 180 + 10
+    "1x2" = @{ w = 220; h = 370 }  # 180 + 10 + 180
+    "2x1" = @{ w = 450; h = 180 }  # 220 + 10 + 220
+    "2x2" = @{ w = 450; h = 370 }  # 220 + 10 + 220; 180 + 10 + 180
+    "2x3" = @{ w = 450; h = 560 }  # 220 + 10 + 220; 180 + 10 + 180 + 10 + 180
 }
 
 function New-CroppedWebpThumb {
@@ -70,20 +71,6 @@ function New-CroppedWebpThumb {
         $OutputFile
 }
 
-$specialThumbShapeList = @(
-	"events/2026_05_15/IMG_0726_01",
-	"events/2026_05_15/IMG_0731",
-	"events/2026_05_15/IMG_0753_01",
-	"events/2026_05_15/IMG_0768_01",
-	"events/2026_05_15/IMG_0779",
-	"events/2026_05_15/IMG_0815",
-	"events/2026_05_15/IMG_0875",
-	"events/2026_05_15/IMG_1022",
-	"events/2026_05_15/IMG_1141",
-	"events/2026_05_15/IMG_1041",
-	"events/2026_03_29/IMG_0140_02"
-);
-
 $specialThumbShapes = @{
 	"events/2026_05_15/IMG_0726_01" = @("all") 
 	"events/2026_05_15/IMG_0731"    = @("all") 
@@ -97,10 +84,17 @@ $specialThumbShapes = @{
 	"events/2026_05_15/IMG_1041"    = @("all") 
 	"events/2026_03_29/IMG_0140_02" = @("all") 
 	
+	"events/2026_06_30/IMG_3384"    = @("2x2")
+	"events/2026_06_30/IMG_2825"    = @("1x2")
+	"events/2026_07_06/IMG_3762"    = @("2x1")
+	
 	"events/2026_05_09/IMG_0378"    = @("2x2")
 	"events/2026_05_09/IMG_0456"    = @("1x2")
 	"events/2026_05_09/IMG_0487"    = @("2x2")
 	"events/2026_05_09/IMG_0671-thumbnail" = @("2x1")
+	
+	"events/2026_06_12/IMG_1452" = @("1x2")
+	"events/2026_06_12/IMG_1487" = @("2x3")
 }
 
 
