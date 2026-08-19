@@ -704,14 +704,20 @@ h2.events-date {
     Individual performers styling
    ================================= */
 .angelina-popova-gallery #gallery {
-  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  min-height: 360px;
+  min-height: 400px;
+}
+
+.denitsa-ivana-kamburova-gallery #gallery {
+  max-width: 591px;
+  margin: 0 auto;
+  min-height: 323px;
 }
 
 @media screen and (max-width: 880px) {
-  .angelina-popova-gallery #gallery {
+  .angelina-popova-gallery #gallery,
+  .denitsa-ivana-kamburova-gallery #gallery {
     min-height: 300px;
   }
 }

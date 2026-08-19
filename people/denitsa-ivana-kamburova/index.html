@@ -80,7 +80,7 @@
     </p>
   </div>
 
-  <div style="min-height: 370px;">
+  <div class="denitsa-ivana-kamburova-gallery">
     <div role="main" id="gallery"></div>
   </div>
   
@@ -90,6 +90,21 @@
     <h3 class="person-section-title">Участия и Изпълнения</h3>
     
     <div class="performances-grid">
+      
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe title="You give love a bad name - Bon Jovi" src="https://www.youtube.com/embed/AmIcGBJbVG4" allowfullscreen></iframe>
+          </div>
+          <div class="video-info">
+            <h4 class="video-title">You give love a bad name - Bon Jovi</h4>
+            <a href="/events/2026_06_30/" class="video-event-link">
+              Изпълнено на <span>Последен учебен ден '26</span>
+            </a>
+            <div class="performer-tags">
+              <a href="/people/denitsa-ivana-kamburova" class="tag"><span class="icon icon-mic"></span> Деница-Ивана Камбурова</a>
+            </div>
+          </div>
+        </div>
 
         <div class="video-card">
             <div class="video-wrapper">
@@ -132,12 +147,17 @@
   <script src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
   <script>
   const rawItems = [
-      {
-        "src": "/images/full/people/denitsa-ivana-kamburova/people-denitsa-ivana-kamburova.webp",
-        "srct": "/images/thumb/people/denitsa-ivana-kamburova/people-denitsa-ivana-kamburova.webp",
-        "title": "Деница-Ивана Камбурова"
-      },
-    ];
+    {
+      "src": "/images/full/people/denitsa-ivana-kamburova/people-denitsa-ivana-kamburova.webp",
+      "srct": "/images/thumb/people/denitsa-ivana-kamburova/people-denitsa-ivana-kamburova.webp",
+      "title": "Деница-Ивана Камбурова"
+    },
+    {
+      "src": "/images/full/events/2026_06_30/IMG_3301.webp",
+      "srct": "/images/thumb/events/2026_06_30/IMG_3301.webp",
+      "title": "Деница-Ивана Камбурова по време на изпълнение на песен с изправена лява ръка, сочеща надясно в снимката."
+    }
+  ];
     
   const responsiveItems = rawItems.map(item => {
     const thumbBase = item.srct.replace(/\.webp$/, '');
@@ -157,11 +177,11 @@
     // GALLERY LAYOUT
     galleryDisplayMode: 'rows',
     gallerySorting: 'none',
-    thumbnailAlignment: 'center',
     thumbnailDisplayOrder: 'none',
+    thumbnailAlignment: 'center',
 
-    thumbnailHeight: '370', 
-    thumbnailWidth: '260',
+    thumbnailHeight: '400', 
+    thumbnailWidth: 'auto',
     thumbnailGutterWidth: 10, 
     thumbnailGutterHeight: 10,
     thumbnailBorderHorizontal: 0, 
